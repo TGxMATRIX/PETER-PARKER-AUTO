@@ -1,18 +1,11 @@
-![Typing SVG](https://readme-typing-svg.herokuapp.com/?lines=𝗪𝗘𝗟𝗖𝗢𝗠+𝗧𝗢+𝐏𝐑𝐎𝐅𝐄𝐒𝐒𝐎𝐑+𝐁𝐎𝐓!;𝗖𝗥𝗘𝗔𝗧𝗘𝗗+𝗕𝗬+𝗧𝗘𝗔𝗠+𝗣𝗥𝗢𝗙𝗘𝗦𝗦𝗢𝗥+𝗕𝗢𝗧!;𝗔+𝗦𝗜𝗠𝗣𝗟𝗘+𝗧𝗚+𝗔𝗨𝗧𝗢𝗙𝗜𝗟𝗧𝗘𝗥+𝗕𝗢𝗧!)</p>
+[![Typing SVG](https://readme-typing-svg.demolab.com?font=&weight=800&size=300&pause=1000&width=6000&height=1900&lines=%F0%9D%97%AA%F0%9D%97%98%F0%9D%97%9F%F0%9D%97%96%F0%9D%97%A2%F0%9D%97%A0+%F0%9D%97%A7%F0%9D%97%A2+%F0%9D%99%8B%F0%9D%99%80%F0%9D%99%8F%F0%9D%99%80%F0%9D%99%8D+%F0%9D%99%8B%F0%9D%98%BC%F0%9D%99%8D%F0%9D%99%86%F0%9D%99%80%F0%9D%99%8D+%F0%9D%90%81%F0%9D%90%8E%F0%9D%90%93;%F0%9D%97%96%F0%9D%97%A5%F0%9D%97%98%F0%9D%97%94%F0%9D%97%A7%F0%9D%97%98%F0%9D%97%97+%F0%9D%97%95%F0%9D%97%AC+%F0%9D%97%A7%F0%9D%97%98%F0%9D%97%94%F0%9D%97%A0+%F0%9D%97%A0%F0%9D%97%AE%F0%9D%98%81%F0%9D%97%A5%F0%9D%97%B6%F0%9D%98%85%F0%9D%97%95%F0%9D%97%BC%F0%9D%98%81%F0%9D%98%87;%F0%9D%97%94+%F0%9D%97%A6%F0%9D%97%9C%F0%9D%97%A0%F0%9D%97%A3%F0%9D%97%9F%F0%9D%97%98+%F0%9D%97%A7%F0%9D%97%9A+%F0%9D%97%95%F0%9D%97%A2%F0%9D%97%A7+MAKER)](https://git.io/typing-svg)
 <p align="center">
-  <img src="https://telegra.ph/file/cf1a9362643ec3375589d.jpg" alt="MKN BOTZ LOGO">
+  <img src="https://telegra.ph/file/79bd83439254ed9c4bbca.jpg" alt="MatRixBotz LOGO">
 </p>
 <h1 align="center">
-  <b> 𝐏𝐑𝐎𝐅𝐄𝐒𝐒𝐎𝐑 𝐁𝐎𝐓</b>
+  <b> 𝙋𝙀𝙏𝙀𝙍 𝙋𝘼𝙍𝙆𝙀𝙍 𝐁𝐎𝐓</b>
 </h1>
 
-[![Stars](https://img.shields.io/github/stars/MrMKN/PROFESSOR-BOT?style=flat-square&color=yellow)](https://github.com/MrMKN/PROFESSOR-BOT/stargazers)
-[![Forks](https://img.shields.io/github/forks/MrMKN/PROFESSOR-BOT?style=flat-square&color=orange)](https://github.com/MrMKN/PROFESSOR-BOT/fork)
-[![Size](https://img.shields.io/github/repo-size/MrMKN/PROFESSOR-BOT?style=flat-square&color=green)](https://github.com/MrMKN/PROFESSOR-BOT)   
-[![Open Source Love svg2](https://badges.frapsoft.com/os/v2/open-source.svg?v=103)](https://github.com/MrMKN/PROFESSOR-BOT)   
-[![Contributors](https://img.shields.io/github/contributors/MrMKN/PROFESSOR-BOT?style=flat-square&color=green)](https://github.com/MrMKN/PROFESSOR-BOT/graphs/contributors)
-[![License](https://img.shields.io/badge/License-AGPL-blue)](https://github.com/MrMKN/PROFESSOR-BOT/blob/main/LICENSE)
-[![Sparkline](https://stars.medv.io/MrMKN/PROFESSOR-BOT.svg)](https://stars.medv.io/MrMKN/PROFESSOR-BOT)
 
 
 
