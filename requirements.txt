@@ -15,4 +15,5 @@ speedtest-cli
 Pillow
 telegraph
 googletrans
+gTTS
 
