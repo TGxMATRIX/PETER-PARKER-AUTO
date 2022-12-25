@@ -16,4 +16,4 @@ Pillow
 telegraph
 googletrans
 gTTS
- 
+psutil
