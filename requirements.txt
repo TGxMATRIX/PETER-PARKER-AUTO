@@ -13,4 +13,5 @@ DateTime
 aiofiles
 speedtest-cli
 Pillow
+telegraph
 
