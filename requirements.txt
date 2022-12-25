@@ -17,4 +17,3 @@ telegraph
 googletrans
 gTTS
 psutil
-image
