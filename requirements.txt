@@ -12,3 +12,5 @@ asyncio
 DateTime
 aiofiles
 speedtest-cli
+Pillow
+
