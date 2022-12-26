@@ -67,9 +67,7 @@ SINGLE_BUTTON = is_enabled((environ.get('SINGLE_BUTTON', "True")), True)
 CUSTOM_FILE_CAPTION = environ.get("CUSTOM_FILE_CAPTION", "{file_name}")
 BATCH_FILE_CAPTION = environ.get("BATCH_FILE_CAPTION", None)
 IMDB_TEMPLATE = environ.get("IMDB_TEMPLATE", "<b>Query: {query}</b> \n‌IMDb Data:\n\n>🏷 Title</b>: <a href={url}>{title}</a>\n<b>
-
-🎭 Genres</b>: {genres}\n<b>
-
+csf
 📆 Year</b>: <a href={url}/releaseinfo>{year}</a>\n<b>
 
 🌟 Rating</b>: <a href={url}/ratings>{rating}</a>\n<b>
