@@ -11,9 +11,9 @@ aiohttp
 asyncio
 DateTime
 aiofiles
-speedtest-cli
+psutil
 Pillow
 telegraph
 googletrans
 gTTS
-psutil
+
