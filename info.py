@@ -66,31 +66,9 @@ IMDB = is_enabled((environ.get('IMDB', "True")), True)
 SINGLE_BUTTON = is_enabled((environ.get('SINGLE_BUTTON', "True")), True)
 CUSTOM_FILE_CAPTION = environ.get("CUSTOM_FILE_CAPTION", "{file_name}")
 BATCH_FILE_CAPTION = environ.get("BATCH_FILE_CAPTION", None)
-IMDB_TEMPLATE = environ.get("IMDB_TEMPLATE", "<b>Query: {query}</b> \n‌IMDb Data:\n\n>🏷 Title</b>: <a href={url}>{title}</a>\n<b>
-csf
-📆 Year</b>: <a href={url}/releaseinfo>{year}</a>\n<b>
-
-🌟 Rating</b>: <a href={url}/ratings>{rating}</a>\n<b>
-
-☀️ Languages</b> : <code>{languages}</code>\n<b>
-
-👨‍💼 Dɪʀᴇᴄᴛᴏʀ</b>: {director}\n<b>
-
-👨🏻‍🦱 Pʀᴏᴅᴜᴄᴇʀ</b>: {producer}\n<b>
-
-📑 wʀɪᴛᴇʀ</b>: {writer}\n<b>
-
-📀 RunTime</b>: {runtime} Minutes\n<b>
-
-📆 Release Info</b> : {release_date}\n<b>
-
-🎛 Countries</b> : <code>{countries}</code>\n<b>
-
-📓 Sᴛᴏʀy</b> : <code>{plot}</code>\n\n\n<b>
-
-🍀Requested by🍀</b> : {message.from_user.mention}",        
-
-            "required": false")
+IMDB_TEMPLATE = environ.get("IMDB_TEMPLATE", "<b>Query: {query}</b> \n‌IMDb Data:\n\n>🏷 Title</b>: <a href={url}>{title}</a>\n<b>",
+sg
+    szsz        "required": false")
 LONG_IMDB_DESCRIPTION = is_enabled(environ.get("LONG_IMDB_DESCRIPTION", "False"), False)
 SPELL_CHECK_REPLY = is_enabled(environ.get("SPELL_CHECK_REPLY", "True"), True)
 MAX_LIST_ELM = environ.get("MAX_LIST_ELM", None)
