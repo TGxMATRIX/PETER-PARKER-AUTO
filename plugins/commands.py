@@ -47,7 +47,10 @@ async def start(client, message):
             InlineKeyboardButton("💫 𝙰𝙱𝙾𝚄𝚃 💫", callback_data="about")
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
+        await message.reply_chat_action(enums.ChatAction.TYPING)
         m=await message.reply_sticker("CAACAgUAAxkBAAEG-spjprSY-hPcJpJPXtmfQ-FaKEh78wAC-AMAAp9EiVed3ajGmwsl5iwE")
+        await asyncio.sleep(1)
+        await m.delete()
         await message.reply_photo(
             photo=random.choice(PICS),
             caption=START_MESSAGE.format(user=message.from_user.mention, bot=temp.B_LINK),
