@@ -14,6 +14,7 @@
 - [x] Auto Filter
 - [x] Manual Filter
 - [x] IMDB
+- [x] predvd delete options
 - [x] Admin Commands
 - [x] Broadcast
 - [x] Index
