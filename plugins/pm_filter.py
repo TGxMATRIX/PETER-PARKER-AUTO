@@ -838,18 +838,49 @@ async def cb_handler(client: Client, query: CallbackQuery):
             reply_markup=reply_markup,
             parse_mode=enums.ParseMode.HTML
         )
-    elif query.data == "help":
-        buttons = [[
-            InlineKeyboardButton('⛓️𝙲𝙾𝙽𝙽𝙴𝙲𝚃𝙸𝙾𝙽𝚂⛓️', callback_data='coct'),
-            InlineKeyboardButton('❄️ 𝙴𝚇𝚃𝚁𝙰 𝙼𝙾𝙳𝚂 ❄️', callback_data='extra'),            
-            ],[                       
-            InlineKeyboardButton('𝙲𝙰𝚁𝙱𝙾𝙽', callback_data='carb'),
-            InlineKeyboardButton('𝙵𝙾𝙽𝙳', callback_data='fond'),
-            InlineKeyboardButton('𝙼𝚄𝚃𝙴', callback_data='restric')
+    elif query.data == "help2":
+        buttons = [[                               
+            InlineKeyboardButton('❄️ Mᴏʀᴇ Fᴇᴀᴛᴜʀᴇꜱ ❄️', callback_data='help')  
             ],[
-            InlineKeyboardButton('🏚️𝙷𝙾𝙼𝙴🏚️', callback_data='start'),
-            InlineKeyboardButton('☀️𝚂𝚃𝙰𝚃𝚄𝚂☀️', callback_data='stats')
-        ]]
+            InlineKeyboardButton('Mᴀɴᴜᴀʟ Fɪʟᴛᴇʀ', callback_data='manuelfilter'),
+            InlineKeyboardButton('Aᴜᴛᴏ Fɪʟᴛᴇʀ', callback_data='autofilter')
+            ],[
+            InlineKeyboardButton('Cᴏɴɴᴇᴄᴛɪᴏɴꜱ', callback_data='coct'),
+            InlineKeyboardButton('Exᴛʀᴀ Mᴏᴅꜱ', callback_data='extra')   
+            ],[
+            InlineKeyboardButton('Hᴏᴍᴇ', callback_data='start'),
+            InlineKeyboardButton('Sᴛᴀᴛᴜꜱ', callback_data='stats')
+         ]] 
+        reply_markup = InlineKeyboardMarkup(buttons)             
+        await query.message.edit_text(                     
+            text=script.HELP_TXT.format(query.from_user.mention),
+            reply_markup=reply_markup,
+            parse_mode=enums.ParseMode.HTML
+        )      
+    elif query.data == "help":
+        buttons = [[                               
+            InlineKeyboardButton('ᴛᴇʟᴇɢʀᴀᴘʜ​', callback_data='tele'),
+            InlineKeyboardButton('sʜᴀʀᴇ-ᴛᴇxᴛ​', callback_data='sharetxt'),
+            InlineKeyboardButton('ꜰɪʟᴇ-sᴛᴏʀᴇ​', callback_data='newdata')
+            ],[           
+            InlineKeyboardButton('ᴊsᴏɴᴇ', callback_data='son'),
+            InlineKeyboardButton('ᴛᴛs', callback_data='ttss'),           
+            InlineKeyboardButton('ᴘᴜʀɢᴇ', callback_data='purges')
+            ],[
+            InlineKeyboardButton('ᴘᴀsᴛᴇ', callback_data='pastes'),
+            InlineKeyboardButton("ɪᴍᴀɢᴇ", callback_data='image'),
+            InlineKeyboardButton('ᴘɪɴɢ', callback_data='pings')                                   
+            ],[                               
+            InlineKeyboardButton('𝙼𝚄𝚃𝙴', callback_data='restric'),
+            InlineKeyboardButton('ᴋɪᴄᴋ', callback_data='zombies'),
+            InlineKeyboardButton('ᴘɪɴ', callback_data='pin')
+            ],[
+            InlineKeyboardButton('ᴄᴀʀʙᴏɴ​', callback_data='carb'),
+            InlineKeyboardButton('ꜰᴏɴᴛ​', callback_data='fond'),
+            InlineKeyboardButton('ᴢᴏᴍʙɪᴇ​', callback_data='zombies')
+            ],[
+            InlineKeyboardButton('↭ ʙᴀᴄᴋ ᴛᴏ ʜᴏᴍᴇ ​↭', callback_data='help2')
+         ]]
         reply_markup = InlineKeyboardMarkup(buttons)             
         await query.message.edit_text(                     
             text=script.HELP_TXT.format(query.from_user.mention),
