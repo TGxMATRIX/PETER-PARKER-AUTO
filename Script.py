@@ -152,8 +152,9 @@ these are the extra features of this bot
 By @MatRixBotzTG"""
     LOG_TEXT_G = """#𝐍𝐞𝐰𝐆𝐫𝐨𝐮𝐩
     
-<b>᚛› 𝐆𝐫𝐨𝐮𝐩 ⪼ {a}(<code>{b}</code>)</b>
-<b>᚛› 𝐆 𝐈𝐃 ⪼ @{c}
+<b>᚛› 𝐆𝐫𝐨𝐮𝐩 ⪼ {a}</b>
+<b>᚛› 𝐆 𝐈𝐃 ⪼ <code>{b}</code></b>
+<b> group username @{c}</b>
 <b>᚛› 𝐓𝐨𝐭𝐚𝐥 𝐌𝐞𝐦𝐛𝐞𝐫𝐬 ⪼ {d}</b>
 <b>᚛› 𝐀𝐝𝐝𝐞𝐝 𝐁𝐲 ⪼ {e}</b>
 
