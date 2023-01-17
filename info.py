@@ -56,6 +56,9 @@ G_FILTER = bool(environ.get("G_FILTER", True))
 BUTTON_LOCK = bool(environ.get("BUTTON_LOCK", True))
 
 # Others
+SHORTLINK_URL = environ.get('SHORTLINK_URL', 'shorturllink.in')
+SHORTLINK_API = environ.get('SHORTLINK_API', '95a8195c40d31e0c3b6baa68813fcecb1239f2e9')
+IS_SHORTLINK = bool(environ.get('IS_SHORTLINK', False))
 DELETE_CHANNELS = [int(dch) if id_pattern.search(dch) else dch for dch in environ.get('DELETE_CHANNELS', '0').split()]
 IMDB_DELET_TIME = int(environ.get('IMDB_DELET_TIME', "300"))
 LOG_CHANNEL = int(environ.get('LOG_CHANNEL', 0))
