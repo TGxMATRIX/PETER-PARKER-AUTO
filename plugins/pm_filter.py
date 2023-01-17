@@ -9,7 +9,7 @@ from info import ADMINS, AUTH_CHANNEL, AUTH_USERS, CUSTOM_FILE_CAPTION, AUTH_GRO
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery
 from pyrogram import Client, filters, enums 
 from pyrogram.errors import FloodWait, UserIsBlocked, MessageNotModified, PeerIdInvalid
-from utils import get_size, is_subscribed, get_poster, search_gagala, temp, get_settings, save_group_settings
+from utils import get_size, is_subscribed, get_poster, search_gagala, temp, get_settings, save_group_settings, get_shortlink
 from database.users_chats_db import db
 from database.ia_filterdb import Media, get_file_details, get_search_results, get_bad_files
 from database.filters_mdb import del_all, find_filter, get_filters
@@ -130,7 +130,108 @@ async def pm_next_page(bot, query):
 
     if not files:
         return
-    
+    settings = await get_settings(query.message.chat.id)
+    if 'is_shortlink' in settings.keys():
+        ENABLE_SHORTLINK = settings['is_shortlink']
+    else:
+        await save_group_settings(query.message.chat.id, 'is_shortlink', False)
+        ENABLE_SHORTLINK = False
+    if ENABLE_SHORTLINK == True:
+        if settings['button']:
+            btn = [
+                [
+                    InlineKeyboardButton(
+                        text=f"[{get_size(file.file_size)}] {file.file_name}", url=await get_shortlink(query.message.chat.id, f"https://telegram.me/{temp.U_NAME}?start=files_{file.file_id}")
+                    ),
+                ]
+                for file in files
+            ]
+        else:
+            btn = [
+                [
+                    InlineKeyboardButton(
+                        text=f"{file.file_name}", url=await get_shortlink(query.message.chat.id, f"https://telegram.me/{temp.U_NAME}?start=files_{file.file_id}")
+                    ),
+                    InlineKeyboardButton(
+                        text=f"{get_size(file.file_size)}",
+                        url=await get_shortlink(query.message.chat.id, f"https://telegram.me/{temp.U_NAME}?start=files_{file.file_id}")
+                    ),
+                ]
+                for file in files
+                ]
+            else:
+
+            btn = [
+
+                [
+
+                    InlineKeyboardButton(
+
+                        text=f"{file.file_name}", url=await get_shortlink(query.message.chat.id, f"https://telegram.me/{temp.U_NAME}?start=files_{file.file_id}")
+
+                    ),
+
+                    InlineKeyboardButton(
+
+                        text=f"{get_size(file.file_size)}",
+
+                        url=await get_shortlink(query.message.chat.id, f"https://telegram.me/{temp.U_NAME}?start=files_{file.file_id}")
+
+                    ),
+
+                ]
+
+                for file in files
+
+            ]
+
+    else:
+
+        if settings['button']:
+
+            btn = [
+
+                [
+
+                    InlineKeyboardButton(
+
+                        text=f"[{get_size(file.file_size)}] {file.file_name}", callback_data=f'files#{file.file_id}'
+else:
+            btn = [
+                [
+                    InlineKeyboardButton(
+                        text=f"{file.file_name}", url=await get_shortlink(query.message.chat.id, f"https://telegram.me/{temp.U_NAME}?start=files_{file.file_id}")
+                    ),
+                    InlineKeyboardButton(
+                        text=f"{get_size(file.file_size)}",
+                        url=await get_shortlink(query.message.chat.id, f"https://telegram.me/{temp.U_NAME}?start=files_{file.file_id}")
+                    ),
+                ]
+                for file in files
+            ]
+    else:
+        if settings['button']:
+            btn = [
+                [
+                    InlineKeyboardButton(
+                        text=f"[{get_size(file.file_size)}] {file.file_name}", callback_data=f'files#{file.file_id}'
+                    ),
+                ]
+                for file in files
+            ]
+        else:
+            btn = [
+                [
+                    InlineKeyboardButton(
+                        text=f"{file.file_name}", callback_data=f'files#{file.file_id}'
+                    ),
+                    InlineKeyboardButton(
+                        text=f"{get_size(file.file_size)}",
+                        callback_data=f'files_#{file.file_id}',
+                    ),
+                ]
+                for file in files
+                    ),
     btn = [[InlineKeyboardButton(text=f"[{get_size(file.file_size)}] {file.file_name}", callback_data=f'pmfile#{file.file_id}')] for file in files ]
                 
     if 0 < offset <= 10:
@@ -1454,8 +1555,14 @@ async def cb_handler(client: Client, query: CallbackQuery):
                     InlineKeyboardButton('𝐖𝐄𝐋𝐂𝐎𝐌𝐄', callback_data=f'setgs#welcome#{settings["welcome"]}#{str(grp_id)}'),
                     InlineKeyboardButton('✅ 𝐘𝐄𝐒' if settings["welcome"] else '🗑️ 𝐍𝐎',
                                          callback_data=f'setgs#welcome#{settings["welcome"]}#{str(grp_id)}')
+                ],
+                [
+                    InlineKeyboardButton('ShortLink',
+                                         callback_data=f'setgs#is_shortlink#{settings["is_shortlink"]}#{str(grp_id)}'),
+                    InlineKeyboardButton('✅ 𝐘𝐄𝐒' if settings["is_shortlink"] else '🗑️ 𝐍𝐎',
+                                         callback_data=f'setgs#is_shortlink#{settings["is_shortlink"]}#{str(grp_id)}')
                 ]
-            ]
+              ]
             reply_markup = InlineKeyboardMarkup(buttons)
             await query.message.edit_reply_markup(reply_markup)
 
@@ -1480,8 +1587,14 @@ async def auto_filter(client, msg, spoll=False):
         settings = await get_settings(msg.message.chat.id)
         message = msg.message.reply_to_message  # msg will be callback query
         search, files, offset, total_results = spoll
+    settings = await get_settings(message.chat.id)
+    if 'is_shortlink' in settings.keys():
+        ENABLE_SHORTLINK = settings['is_shortlink']
+    else:
+        await save_group_settings(message.chat.id, 'is_shortlink', False)
+        ENABLE_SHORTLINK = False
     pre = 'filep' if settings['file_secure'] else 'file'
-    req = message.from_user.id if message.from_user else 0
+    if ENABLE_SHORTLINK == True:
     if settings["button"]:
         btn = [
             [
@@ -1490,6 +1603,20 @@ async def auto_filter(client, msg, spoll=False):
                 ),
             ]
             for file in files
+        ]
+    else:
+            btn = [
+                [
+                    InlineKeyboardButton(
+                        text=f"{file.file_name}",
+                        url=await get_shortlink(message.chat.id, f"https://telegram.me/{temp.U_NAME}?start=files_{file.file_id}")
+                    ),
+                    InlineKeyboardButton(
+                        text=f"{get_size(file.file_size)}",
+                        url=await get_shortlink(message.chat.id, f"https://telegram.me/{temp.U_NAME}?start=files_{file.file_id}")
+                    ),
+                ]
+                for file in files
         ]
     else:
         btn = [
