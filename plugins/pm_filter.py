@@ -1675,7 +1675,7 @@ async def auto_filter(client, msg, spoll=False):
         await msg.message.delete()
 
 
-async def pm_AutoFilter(client, msg, pmspoll=False):
+async def pm_AutoFilter(client, msg, pmspoll=True):
     if not pmspoll:
         message = msg   
         if message.text.startswith("/"): return  # ignore commands
