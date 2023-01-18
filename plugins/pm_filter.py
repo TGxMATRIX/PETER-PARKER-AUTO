@@ -1553,6 +1553,7 @@ async def auto_filter(client, msg, spoll=False):
         settings = await get_settings(msg.message.chat.id)
         message = msg.message.reply_to_message  # msg will be callback query
         search, files, offset, total_results = spoll
+    pre = 'filep' if settings['file_secure'] else 'file'
     if settings['is_shortlink']:
         if settings['button']:
             btn = [
@@ -1599,7 +1600,6 @@ async def auto_filter(client, msg, spoll=False):
                 ]
                 for file in files
             ]
-
 
     if offset != "":
         key = f"{message.chat.id}-{message.id}"
