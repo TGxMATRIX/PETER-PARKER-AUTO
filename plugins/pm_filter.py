@@ -1523,7 +1523,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
                                          callback_data=f'setgs#welcome#{settings["welcome"]}#{str(grp_id)}')
                 ],
                 [
-                    InlineKeyboardButton('ShortLink',
+                    InlineKeyboardButton('𝘀𝗵𝗼𝗿𝘁𝗹𝗶𝗻𝗸',
                                          callback_data=f'setgs#is_shortlink#{settings["is_shortlink"]}#{str(grp_id)}'),
                     InlineKeyboardButton('✅ 𝐘𝐄𝐒' if settings["is_shortlink"] else '🗑️ 𝐍𝐎',
                                          callback_data=f'setgs#is_shortlink#{settings["is_shortlink"]}#{str(grp_id)}')
@@ -1553,7 +1553,8 @@ async def auto_filter(client, msg, spoll=False):
         settings = await get_settings(msg.message.chat.id)
         message = msg.message.reply_to_message  # msg will be callback query
         search, files, offset, total_results = spoll
-        pre = 'filep' if settings['file_secure'] else 'file'
+    pre = 'filep' if settings['file_secure'] else 'file'
+    req = message.from_user.id if message.from_user else 0
     if settings['is_shortlink']:
         if settings['button']:
             btn = [
@@ -1578,28 +1579,29 @@ async def auto_filter(client, msg, spoll=False):
                 for file in files
             ]
     else:
-        if settings['button']:
-            btn = [
-                [
-                    InlineKeyboardButton(
-                        text=f"[{get_size(file.file_size)}] {file.file_name}", callback_data=f'{pre}#{file.file_id}'
-                    ),
-                ]
-                for file in files
+        if settings["button"]:
+        btn = [
+            [
+                InlineKeyboardButton(
+                    text=f"[{get_size(file.file_size)}] {file.file_name}", callback_data=f'{pre}#{req}#{file.file_id}'
+                ),
             ]
-        else:
-            btn = [
-                [
-                    InlineKeyboardButton(
-                        text=f"{file.file_name}", callback_data=f'{pre}#{file.file_id}'
-                    ),
-                    InlineKeyboardButton(
-                        text=f"{get_size(file.file_size)}",
-                        callback_data=f'{pre}#{file.file_id}',
-                    ),
-                ]
-                for file in files
+            for file in files
+        ]
+    else:
+        btn = [
+            [
+                InlineKeyboardButton(
+                    text=f"{file.file_name}",
+                    callback_data=f'{pre}#{req}#{file.file_id}',
+                ),
+                InlineKeyboardButton(
+                    text=f"{get_size(file.file_size)}",
+                    callback_data=f'{pre}#{req}#{file.file_id}',
+                ),
             ]
+            for file in files
+        ]
 
     if offset != "":
         key = f"{message.chat.id}-{message.id}"
