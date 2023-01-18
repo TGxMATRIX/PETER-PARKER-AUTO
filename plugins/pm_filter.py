@@ -1576,13 +1576,9 @@ async def auto_filter(client, msg, spoll=False):
                         url=await get_shortlink(f"https://telegram.me/{temp.U_NAME}?start=files_{file.file_id}")
                     ),
                 ]
-                for file in files
-            ]
-    else:
-        if settings["button"]:
-            btn = [
-                [
-                   InlineKeyboardButton(
+btn = [
+            [
+                InlineKeyboardButton(
                     text=f"[{get_size(file.file_size)}] {file.file_name}", callback_data=f'{pre}#{req}#{file.file_id}'
                 ),
             ]
@@ -1602,6 +1598,18 @@ async def auto_filter(client, msg, spoll=False):
             ]
             for file in files
         ]
+    btn.insert(0, 
+        [
+            InlineKeyboardButton(f'  🎬 {search}  🎬 ', 'qinfo')
+        ]
+    )
+    btn.insert(1, 
+         [
+             InlineKeyboardButton(f'📮 ɪɴꜰᴏ', 'reqinfo'),
+             InlineKeyboardButton(f'📟 ᴍᴏᴠɪᴇ', 'minfo'),
+             InlineKeyboardButton(f'🔰 sᴇʀɪᴇs', 'sinfo')
+         ]
+    )
 
     if offset != "":
         key = f"{message.chat.id}-{message.id}"
