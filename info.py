@@ -58,7 +58,7 @@ BUTTON_LOCK = bool(environ.get("BUTTON_LOCK", True))
 # Others
 SHORTLINK_URL = environ.get('SHORTLINK_URL', 'shorturllink.in')
 SHORTLINK_API = environ.get('SHORTLINK_API', '950633dd73875c24f2e8216428ea6ec9c835d41a')
-IS_SHORTLINK = bool(environ.get('IS_SHORTLINK', False))
+
 DELETE_CHANNELS = [int(dch) if id_pattern.search(dch) else dch for dch in environ.get('DELETE_CHANNELS', '0').split()]
 IMDB_DELET_TIME = int(environ.get('IMDB_DELET_TIME', "300"))
 LOG_CHANNEL = int(environ.get('LOG_CHANNEL', 0))
