@@ -238,29 +238,57 @@ async def next_page(bot, query):
     if not files:
         return
     settings = await get_settings(query.message.chat.id)
-    nxreq  = query.from_user.id if query.from_user else 0
-    if settings['button']:
-        btn = [
-            [
-                InlineKeyboardButton(
-                    text=f"[{get_size(file.file_size)}] {file.file_name}", callback_data=f'files#{nxreq}#{file.file_id}'
-                ),
-            ]
-            for file in files
-        ]
+    if 'is_shortlink' in settings.keys():
+        ENABLE_SHORTLINK = settings['is_shortlink']
     else:
-        btn = [
-            [
-                InlineKeyboardButton(
-                    text=f"{file.file_name}", callback_data=f'files#{nxreq}#{file.file_id}'
-                ),
-                InlineKeyboardButton(
-                    text=f"{get_size(file.file_size)}",
-                    callback_data=f'files#{nxreq}#{file.file_id}',
-                ),
+        await save_group_settings(query.message.chat.id, 'is_shortlink', False)
+        ENABLE_SHORTLINK = False
+    if ENABLE_SHORTLINK == True:
+        if settings['button']:
+            btn = [
+                [
+                    InlineKeyboardButton(
+                        text=f"[{get_size(file.file_size)}] {file.file_name}", url=await get_shortlink(query.message.chat.id, f"https://telegram.me/{temp.U_NAME}?start=files_{file.file_id}")
+                    ),
+                ]
+                for file in files
             ]
-            for file in files
-        ]
+        else:
+            btn = [
+                [
+                    InlineKeyboardButton(
+                        text=f"{file.file_name}", url=await get_shortlink(query.message.chat.id, f"https://telegram.me/{temp.U_NAME}?start=files_{file.file_id}")
+                    ),
+                    InlineKeyboardButton(
+                        text=f"{get_size(file.file_size)}",
+                        url=await get_shortlink(query.message.chat.id, f"https://telegram.me/{temp.U_NAME}?start=files_{file.file_id}")
+                    ),
+                ]
+                for file in files
+            ]
+    else:
+        if settings['button']:
+            btn = [
+                [
+                    InlineKeyboardButton(
+                        text=f"[{get_size(file.file_size)}] {file.file_name}", callback_data=f'files#{file.file_id}'
+                    ),
+                ]
+                for file in files
+            ]
+        else:
+            btn = [
+                [
+                    InlineKeyboardButton(
+                        text=f"{file.file_name}", callback_data=f'files#{file.file_id}'
+                    ),
+                    InlineKeyboardButton(
+                        text=f"{get_size(file.file_size)}",
+                        callback_data=f'files_#{file.file_id}',
+                    ),
+                ]
+                for file in files
+            ]
 
     if 0 < offset <= 10:
         off_set = 0
