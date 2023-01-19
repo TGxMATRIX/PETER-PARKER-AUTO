@@ -65,7 +65,15 @@ IMDB = is_enabled((environ.get('IMDB', "True")), True)
 SINGLE_BUTTON = is_enabled((environ.get('SINGLE_BUTTON', "True")), True)
 CUSTOM_FILE_CAPTION = environ.get("CUSTOM_FILE_CAPTION", "{file_name}")
 BATCH_FILE_CAPTION = environ.get("BATCH_FILE_CAPTION", None)
-IMDB_TEMPLATE = environ.get("IMDB_TEMPLATE", "<b>⍞ 𝗧𝗶𝘁𝗹𝗲</b> : <b><i><a href={url}>{title}</a></i></b><b>\n\n⌗ 𝗚𝗲𝗻𝗿𝗲𝘀</b> :<b><i>{genres}</i></b><b>\n★ 𝗥𝗮𝘁𝗶𝗻𝗴</b> : <b><i><a href={url}/ratings>{rating}</a> / 10 (ʙᴀsᴇᴅ ᴏɴ {votes} ᴜsᴇʀ ʀᴀᴛɪɴɢ.)</i></b><b>\n\n〄 𝗥𝗲𝗹𝗲𝗮𝘀𝗲𝗱</b> : <b><i>{release_date}</i></b><b>\n⌬ 𝗟𝗮𝗻𝗴𝘂𝗮𝗴𝗲𝘀</b> : <b><i>{languages}</i></b><b>\n⛤ 𝗖𝗼𝘂𝗻𝘁𝗿𝗶𝗲𝘀</b> : <b><i>{countries}</i></b><b>\n⎙ 𝗦𝘁𝗼𝗿𝘆 𝗟𝗶𝗻𝗲</b> : <code>{plot}</code><b>\n\n★Requested by★</b> : {message.from_user.mention}")
+IMDB_TEMPLATE = environ.get("IMDB_TEMPLATE", "<b>⍞ 𝗧𝗶𝘁𝗹𝗲 : <a href={url}>{title}</a>
+〄 𝗥𝗲𝗹𝗲𝗮𝘀𝗲𝗱 : {runtime} min | <a href={url}/releaseinfo>{year}</a>
+⌗ 𝗚𝗲𝗻𝗿𝗲𝘀 : <i>{genres}</i>
+★ 𝗥𝗮𝘁𝗶𝗻𝗴 : <a href={url}/ratings>{rating}</a> / 10 (based on {votes} user ratings.)
+〄𝗖𝗼𝘂𝗻𝘁𝗿𝗶𝗲𝘀 : <i>{countries}</i>
+⌬ 𝗟𝗮𝗻𝗴𝘂𝗮𝗴𝗲𝘀 : <i>{languages}</i>
+⎙ 𝗗𝗶𝗿𝗲𝗰𝘁𝗼𝗿 : <i>{director}</i> 
+⛤𝗪𝗿𝗶𝘁𝗲𝗿𝘀 : <i>{writer}</i>
+★𝗨𝗽𝗹𝗼𝗮𝗱𝗲𝗱 𝗕𝘆 : <i>{message.chat.title}</i> </b>")
 LONG_IMDB_DESCRIPTION = is_enabled(environ.get("LONG_IMDB_DESCRIPTION", "False"), False)
 SPELL_CHECK_REPLY = is_enabled(environ.get("SPELL_CHECK_REPLY", "True"), True)
 MAX_LIST_ELM = environ.get("MAX_LIST_ELM", None)
