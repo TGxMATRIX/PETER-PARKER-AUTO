@@ -1554,7 +1554,7 @@ async def auto_filter(client, msg, spoll=False):
             ]
             for file in files
         ]
-    btn.insert(0, 
+    btn.insert(1, 
         [
              InlineKeyboardButton(f'📮 ɪɴꜰᴏ', 'reqinfo'),
              InlineKeyboardButton(f'📟 ᴍᴏᴠɪᴇ', 'minfo'),
@@ -1571,14 +1571,14 @@ async def auto_filter(client, msg, spoll=False):
             [InlineKeyboardButton(text=f"📄 PAGES 1/{math.ceil(int(total_results) / 6)}", callback_data="pages"),
              InlineKeyboardButton(text="NEXT ➡️", callback_data=f"next_{req}_{key}_{offset}")]
         )
-        btn.insert(1,
+        btn.insert(0,
             [InlineKeyboardButton(text="💢 ᴊᴏɪɴ ᴏᴜʀ ɢʀᴏᴜᴘ 💢",url="https://t.me/+Pg9tLvtTD1JhNDI1")]
         )
     else:
         btn.append(
             [InlineKeyboardButton(text="📄 Page 1/1", callback_data="pages")]
         )
-        btn.insert(1,
+        btn.insert(0,
             [InlineKeyboardButton(text="💢 ᴊᴏɪɴ ᴏᴜʀ ɢʀᴏᴜᴘ 💢",url="https://t.me/+Pg9tLvtTD1JhNDI1")]
         )
     imdb = await get_poster(search, file=(files[0]).file_name) if settings["imdb"] else None
