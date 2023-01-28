@@ -73,7 +73,7 @@ enable - re-enable chat.
 ban_user  - to ban a user.
 unban_user  - to unban a user.
 channel - to get list of total connected channels
-users_broadcast - to broadcast a message to all users
+broadcast - to broadcast a message to all users
 groups_broadcast - to broadcast a message to all groups
 ```
 
