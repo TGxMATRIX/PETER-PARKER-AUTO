@@ -28,7 +28,7 @@
             "required": true
         },
         "PICS": {
-            "description": "Add some telegraph link of pictures .",
+            "description": "Add some telegraph link of pictures ",
             "value": "https://graph.org/file/e261af3528fd323ee752e.jpg https://graph.org/file/a4401fd70b5b65f72dcd4.jpg https://graph.org/file/54e877a259f62935097d5.jpg https://graph.org/file/6bdef53a78ea348eb6bd3.jpg https://graph.org/file/c67fd2a5584192d99237a.jpg https://graph.org/file/e019990c40d1925ee9b97.jpg https://graph.org/file/c46b3a6584e65cd6665fb.jpg https://graph.org/file/a293ac049bf4ea593e61d.jpg https://graph.org/file/91209731c3b32052ee901.jpg https://graph.org/file/51688ed3d06a101e675f6.jpg"
             "required": false
         },
