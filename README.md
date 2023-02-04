@@ -45,6 +45,8 @@
 * `SINGLE_BUTTON` : choose b/w single or double buttons 
 * `P_TTI_SHOW_OFF` : Customize Result Buttons to Callback or Url by (True = url / False = callback)
 
+[![Deploy To Heroku](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/matrixbotz0/PETER-PARKER-BOT)
+
 
 ## Commands
 ```
