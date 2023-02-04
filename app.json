@@ -1,11 +1,11 @@
 {
-    "name": "PROFESSOR-BOT",
-    "description": "the telegram Autofilter bot",
-    "logo": "https://graph.org/file/b7e8484f6395a180b6380.jpg",
+    "name": "PETER-PARKER-BOT",
+    "description": "the telegram Autofilter bot +  File Store",
+    "logo": "https://graph.org/file/3def231c50570ba3cd2f7.jpg",
     "stack": "container",
     "keywords": ["telegram", "auto-filter"],
-    "website": "https://github.com/MrMKN/PROFESSOR-BOT",
-    "repository": "https://github.com/MrMKN/PROFESSOR-BOT",
+    "website": "https://github.com/matrixbotz0/PETER-PARKER-BOT",
+    "repository": "https://github.com/matrixbotz0/PETER-PARKER-BOT",
     "env": {
         "BOT_TOKEN": {
             "description": "Your bot token.",
@@ -46,7 +46,7 @@
         },
         "CUSTOM_FILE_CAPTION": {
             "description": "A custom file caption for your files. formatable with , file_name, file_caption, file_size, Read Readme.md for better understanding.",
-            "value": "Hey {mention}👋\n\n{file_name}\n\n🔘 size - {file_size}\n\n╔═════ ᴊᴏɪɴ ᴡɪᴛʜ ᴜs ════╗\n💥 𝙅𝙊𝙄𝙉 :- @Mr_MalluOfficial\n💥 𝙅𝙊𝙄𝙉 :- @mr_malayalm_movies\n╚═════ ᴊᴏɪɴ ᴡɪᴛʜ ᴜs ════╝ ",
+            "value": "FILE : <code>{file_name}</code> Size : <i>{file_size}</i> @MatRixBotzTG",
             "required": false
         },
         "DATABASE_URI": {
@@ -65,7 +65,7 @@
         },
         "SUPPORT_CHAT": {
             "description": "Updated Channel Username Without @ Not Chanel ID",
-            "value": "MKN_BOTZ_DISCUSSION_GROUP",
+            "value": "MatRixBotz_support",
             "required": false
         },
         "IMDB": {
@@ -95,7 +95,7 @@
         },       
         "FORCE_SUB_TEXT": {
             "description": "custom force sub text (use ** = bold / use ``=  mono)",
-            "value": "**𝑱𝒐𝒊𝒏 𝑶𝒖𝒓 𝑴𝒐𝒗𝒊𝒆 𝑼𝒑𝒅𝒂𝒕𝒆𝒔 𝑪𝒉𝒂𝒏𝒏𝒆𝒍 𝑻𝒐 𝑼𝒔𝒆 𝑻𝒉𝒊𝒔 𝑩𝒐𝒕!**",
+            "value": "𝙹𝚞𝚜𝚝 𝙲𝚕𝚒𝚌𝚔 𝙾𝚗 𝚃𝚑𝚎 𝙹𝚘𝚒𝚗 𝙱𝚞𝚝𝚝𝚘𝚗 𝙰𝚗𝚍 𝙹𝚘𝚒𝚗 𝚃𝚑𝚎 𝚄𝚙𝚍𝚊𝚝𝚎𝚜 𝙲𝚑𝚊𝚗𝚗𝚎𝚕 𝚊𝚗𝚍 𝙲𝚕𝚒𝚌𝚔 𝙾𝚗 𝚃𝚑𝚎 𝚃𝚛𝚢𝚊𝚐𝚊𝚒𝚗 𝙱𝚞𝚝𝚝𝚘𝚗 𝚃𝚘 𝙶𝚎𝚝 𝙵𝚒𝚕𝚎𝚜!....",
             "required": false
         },
         "AUTH_GROUPS": {
@@ -105,7 +105,7 @@
         },
         "WELCOM_PIC": {
             "description": "Welcome message pic (telegraph link)",
-            "value": "",
+            "value": "https://graph.org/file/e261af3528fd323ee752e.jpg https://graph.org/file/a4401fd70b5b65f72dcd4.jpg https://graph.org/file/54e877a259f62935097d5.jpg https://graph.org/file/6bdef53a78ea348eb6bd3.jpg https://graph.org/file/c67fd2a5584192d99237a.jpg https://graph.org/file/e019990c40d1925ee9b97.jpg https://graph.org/file/c46b3a6584e65cd6665fb.jpg https://graph.org/file/a293ac049bf4ea593e61d.jpg https://graph.org/file/91209731c3b32052ee901.jpg https://graph.org/file/51688ed3d06a101e675f6.jpg",
             "required": false
         },
         "WELCOM_TEXT": {
@@ -115,7 +115,7 @@
         },
         "BUTTON_LOCK_TEXT": {
             "description": "button lock text [User = {query}]",
-            "value": "⚠️ 𝙃𝙚𝙮 {query}! 𝙏𝙝𝙖𝙩'𝙨 𝙉𝙤𝙩 𝙁𝙤𝙧 𝙔𝙤𝙪. 𝙋𝙡𝙚𝙖𝙨𝙚 𝙍𝙚𝙦𝙪𝙚𝙨𝙩 𝙔𝙤𝙪𝙧 𝙊𝙬𝙣",
+            "value": "⚠️ {query}! 𝙎𝙚𝙖𝙧𝙘𝙝 𝙔𝙤𝙪𝙧 𝙊𝙬𝙣'𝙨 ",
             "required": false
         },
         "PMFILTER": {
@@ -133,11 +133,7 @@
             "value": "True",
             "required": false
         },
-        "RemoveBG_API": {
-            "description": "background remover website api key. get from https://www.remove.bg/b/background-removal-api",
-            "required": false 
-        },
-        "P_TTI_SHOW_OFF": { 
+        "P_TTI_SHOW_OFF": {
             "description": "Customize Result Buttons to Callback or Url by (True = url / False = callback)",
             "value": "True",
             "required": false
