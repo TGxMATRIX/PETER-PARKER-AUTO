@@ -59,19 +59,8 @@ async def start(client, message):
             parse_mode=enums.ParseMode.HTML
         )
         return
-    if REQ_CHANNEL and not await is_subscribed(client, message):
-        try:
-            invite_link = await client.create_chat_invite_link(int(REQ_CHANNEL))
-        except ChatAdminRequired:
-            logger.error("Make sure Bot is admin in Forcesub channel")
-            return
-        btn = [
-            [
-                InlineKeyboardButton(
-                    "🤖 Join Updates Channel", url=invite_link.invite_link
-                )
-            ]
-        ]
+    kk, file_id = message.command[1].split("_", 1) if "_" in message.command[1] else (False, False)
+    pre = ('checksubp' if kk == 'filep' else 'checksub') if kk else False
 
     status = await ForceSub(client, message, file_id=file_id, mode=pre)
     if not status:
