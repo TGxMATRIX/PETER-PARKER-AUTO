@@ -8,7 +8,7 @@ from pyrogram.errors import ChatAdminRequired, FloodWait
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 from database.ia_filterdb import Media, get_file_details, unpack_new_file_id
 from database.users_chats_db import db
-from info import CHANNELS, ADMINS, AUTH_CHANNEL, LOG_CHANNEL, PICS, BATCH_FILE_CAPTION, CUSTOM_FILE_CAPTION, PROTECT_CONTENT, START_MESSAGE, FORCE_SUB_TEXT, SUPPORT_CHAT
+from info import CHANNELS, ADMINS, AUTH_CHANNEL, LOG_CHANNEL, PICS, BATCH_FILE_CAPTION, CUSTOM_FILE_CAPTION, PROTECT_CONTENT, START_MESSAGE, FORCE_SUB_TEXT, SUPPORT_CHAT, REQ_CHANNEL
 from utils import get_settings, get_size, is_subscribed, save_group_settings, temp
 from database.connections_mdb import active_connection
 from plugins.fsub import ForceSub
@@ -61,7 +61,7 @@ async def start(client, message):
         return
     if REQ_CHANNEL and not await is_subscribed(client, message):
         try:
-            invite_link = await client.create_chat_invite_link(int(AUTH_CHANNEL))
+            invite_link = await client.create_chat_invite_link(int(REQ_CHANNEL))
         except ChatAdminRequired:
             logger.error("Make sure Bot is admin in Forcesub channel")
             return
