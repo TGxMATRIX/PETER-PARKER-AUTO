@@ -15,6 +15,7 @@ from database.ia_filterdb import Media, get_file_details, get_search_results, ge
 from database.filters_mdb import del_all, find_filter, get_filters
 from database.gfilters_mdb import find_gfilter, get_gfilters
 from plugins.helper.admin_check import admin_fliter
+from plugins.fsub import ForceSub
 
 
 
@@ -508,7 +509,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         if f_caption is None:
             f_caption = f"{files.file_name}"
         try:
-            if AUTH_CHANNEL and not await is_subscribed(client, query):
+            if not ForceSub(client, query):
                 await query.answer(url=f"https://t.me/{temp.U_NAME}?start={ident}_{file_id}")
                 return            
             else:
@@ -544,7 +545,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             f_caption = f"{files.file_name}"
 
         try:
-            if AUTH_CHANNEL and not await is_subscribed(client, query):
+            if not ForceSub(client, query):
                 await query.answer(url=f"https://t.me/{temp.U_NAME}?start={ident}_{file_id}")
                 return
             elif settings['botpm']:
@@ -566,7 +567,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             await query.answer(url=f"https://t.me/{temp.U_NAME}?start={ident}_{file_id}")
         
     elif query.data.startswith("checksub"):
-        if AUTH_CHANNEL and not await is_subscribed(client, query):
+        if not ForceSub(client, query):
             await query.answer("I Like Your Smartness, But Don't Be Oversmart Okay", show_alert=True)
             return
         ident, file_id = query.data.split("#")
