@@ -53,6 +53,10 @@
 
 [![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/matrixbotz0/PETER-PARKER-BOT)
 
+## Deploy to Koyeb
+
+[![Deploy to Koyeb](https://www.koyeb.com/static/images/deploy/button.svg)](https://app.koyeb.com/deploy?type=git&repository=github.com/koyeb/PETER-PARKER-BOT&branch=main&name=PETER-PARKER-BOT)
+
 ## Commands
 ```
 start - check bot alive
