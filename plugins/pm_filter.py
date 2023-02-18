@@ -871,7 +871,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         )
     elif query.data == "about":
         buttons = [[
-            InlineKeyboardButton('sᴛᴀᴛᴜs', callback_data='stats'),
+            InlineKeyboardButton('𝚄𝙿𝙳𝙰𝚃𝙴𝚂', callback_data='updates'),
             InlineKeyboardButton('sᴏᴜʀᴄᴇ', callback_data='source')
         ], [
             InlineKeyboardButton('ʜᴏᴍᴇ', callback_data='start'),
@@ -899,6 +899,21 @@ async def cb_handler(client: Client, query: CallbackQuery):
             reply_markup=reply_markup,
             parse_mode=enums.ParseMode.HTML
         )
+    elif query.data == "updates":
+        buttons = [[
+            InlineKeyboardButton('𝚂𝚄𝙿𝙿𝙾𝚁𝚃', url='https://t.me/MLZ_BOTZ_SUPPORT'),
+            InlineKeyboardButton('𝚄𝙿𝙳𝙰𝚃𝙴𝚂', url='https://t.me/MLZ_BOTZ')
+            ],[
+            InlineKeyboardButton('2nd 𝚂𝚄𝙿𝙿𝙾𝚁𝚃', url='https://t.me/MatRixBotzTGsupport'),
+            InlineKeyboardButton('2nd 𝚄𝙿𝙳𝙰𝚃𝙴𝚂', url='https://t.me/MatRixBotzTG')
+            ],[
+            InlineKeyboardButton('ʙᴀᴄᴋ', callback_data='about')
+        ]]
+        reply_markup = InlineKeyboardMarkup(buttons)
+        await query.message.edit_text(
+            text=script.UPDATES_TXT,
+            reply_markup=reply_markup,
+            parse_mode=enums.ParseMode.HTML
     elif query.data == "manuelfilter":
         buttons = [[
             InlineKeyboardButton('ʙᴀᴄᴋ', callback_data='help2'),
