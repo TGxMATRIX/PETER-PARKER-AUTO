@@ -548,7 +548,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             await query.answer(url=f"https://t.me/{temp.U_NAME}?start={ident}_{file_id}")
     elif query.data.startswith("checksub"):
         if AUTH_CHANNEL and not await is_subscribed(client, query):
-            await query.answer("𝑰 𝑳𝒊𝒌𝒆 𝒀𝒐𝒖𝒓 𝑺𝒎𝒂𝒓𝒕𝒏𝒆𝒔𝒔, 𝑩𝒖𝒕 𝑫𝒐𝒏'𝒕 𝑩𝒆 𝑶𝒗𝒆𝒓𝒔𝒎𝒂𝒓𝒕 😒\n@𝒄𝒊𝒏𝒆𝒎𝒂𝒍𝒂.𝒄𝒐𝒎", show_alert=True)
+            await query.answer("𝑰 𝑳𝒊𝒌𝒆 𝒀𝒐𝒖𝒓 𝑺𝒎𝒂𝒓𝒕𝒏𝒆𝒔𝒔, 𝑩𝒖𝒕 𝑫𝒐𝒏'𝒕 𝑩𝒆 𝑶𝒗𝒆𝒓𝒔𝒎𝒂𝒓𝒕 😒\n@MLZ_BOTZ", show_alert=True)
             return
         ident, file_id = query.data.split("#")
         files_ = await get_file_details(file_id)
@@ -575,6 +575,142 @@ async def cb_handler(client: Client, query: CallbackQuery):
             caption=f_caption,
             protect_content=True if ident == 'checksubp' else False
         )
+    elif query.data == "predvd":
+        k = await client.send_message(chat_id=query.message.chat.id, text="<b>Dᴇʟᴇᴛɪɴɢ...</b>")
+        files, next_offset, total = await get_bad_files(
+                                                  'predvd',
+                                                  offset=0)
+        deleted = 0
+        for file in files:
+            file_ids = file.file_id
+            result = await Media.collection.delete_one({
+                '_id': file_ids,
+            })
+            if result.deleted_count:
+                logger.info('PreDVD File Found ! Successfully deleted from database.')
+            deleted+=1
+        deleted = str(deleted)
+        await k.edit_text(text=f"<b>Sᴜᴄᴄᴇssғᴜʟʟʏ Dᴇʟᴇᴛᴇᴅ {deleted} PʀᴇDVD Fɪʟᴇs.</b>")
+
+    elif query.data == "camrip":
+        k = await client.send_message(chat_id=query.message.chat.id, text="<b>Dᴇʟᴇᴛɪɴɢ...</b>")
+        files, next_offset, total = await get_bad_files(
+                                                  'camrip',
+                                                  offset=0)
+        deleted = 0
+        for file in files:
+            file_ids = file.file_id
+            result = await Media.collection.delete_one({
+                '_id': file_ids,
+            })
+            if result.deleted_count:
+                logger.info('CamRip File Found ! Successfully deleted from database.')
+            deleted+=1
+        deleted = str(deleted)
+        await k.edit_text(text=f"<b>Sᴜᴄᴄᴇssғᴜʟʟʏ Dᴇʟᴇᴛᴇᴅ {deleted} CᴀᴍRɪᴘ Fɪʟᴇs.</b>")
+
+    elif query.data == "predvdrip":
+        k = await client.send_message(chat_id=query.message.chat.id, text="<b>Dᴇʟᴇᴛɪɴɢ...</b>")
+        files, next_offset, total = await get_bad_files(
+                                                  'Predvdrip',
+                                                  offset=0)
+        deleted = 0
+        for file in files:
+            file_ids = file.file_id
+            result = await Media.collection.delete_one({
+                '_id': file_ids,
+            })
+            if result.deleted_count:
+                logger.info('PreDVDRip File Found ! Successfully deleted from database.')
+            deleted+=1
+        deleted = str(deleted)
+        await k.edit_text(text=f"<b>Sᴜᴄᴄᴇssғᴜʟʟʏ Dᴇʟᴇᴛᴇᴅ {deleted} PʀᴇDVDRɪᴘ Fɪʟᴇs.</b>")
+
+    elif query.data == "hdcam":
+        k = await client.send_message(chat_id=query.message.chat.id, text="<b>Dᴇʟᴇᴛɪɴɢ...</b>")
+        files, next_offset, total = await get_bad_files(
+                                                  'HDCam',
+                                                  offset=0)
+        deleted = 0
+        for file in files:
+            file_ids = file.file_id
+            result = await Media.collection.delete_one({
+                '_id': file_ids,
+            })
+            if result.deleted_count:
+                logger.info('HDCams File Found ! Successfully deleted from database.')
+            deleted+=1
+        deleted = str(deleted)
+        await k.edit_text(text=f"<b>Sᴜᴄᴄᴇssғᴜʟʟʏ Dᴇʟᴇᴛᴇᴅ {deleted} HDCᴀᴍ Fɪʟᴇs.</b>")
+
+    elif query.data == "hdcams":
+        k = await client.send_message(chat_id=query.message.chat.id, text="<b>Dᴇʟᴇᴛɪɴɢ...</b>")
+        files, next_offset, total = await get_bad_files(
+                                                  'HD-Cam',
+                                                  offset=0)
+        deleted = 0
+        for file in files:
+            file_ids = file.file_id
+            result = await Media.collection.delete_one({
+                '_id': file_ids,
+            })
+            if result.deleted_count:
+                logger.info('HD-Cams File Found ! Successfully deleted from database.')
+            deleted+=1
+        deleted = str(deleted)
+        await k.edit_text(text=f"<b>Sᴜᴄᴄᴇssғᴜʟʟʏ Dᴇʟᴇᴛᴇᴅ {deleted} HD-Cᴀᴍ Fɪʟᴇs.</b>")
+
+    elif query.data == "sprint":
+        k = await client.send_message(chat_id=query.message.chat.id, text="<b>Dᴇʟᴇᴛɪɴɢ...</b>")
+        files, next_offset, total = await get_bad_files(
+                                                  'S-print',
+                                                  offset=0)
+        deleted = 0
+        for file in files:
+            file_ids = file.file_id
+            result = await Media.collection.delete_one({
+                '_id': file_ids,
+            })
+            if result.deleted_count:
+                logger.info('S-Print File Found ! Successfully deleted from database.')
+            deleted+=1
+        deleted = str(deleted)
+        await k.edit_text(text=f"<b>Sᴜᴄᴄᴇssғᴜʟʟʏ Dᴇʟᴇᴛᴇᴅ {deleted} S-Pʀɪɴᴛ Fɪʟᴇs.</b>")
+
+    elif query.data == "hdts":
+        k = await client.send_message(chat_id=query.message.chat.id, text="<b>Dᴇʟᴇᴛɪɴɢ...</b>")
+        files, next_offset, total = await get_bad_files(
+                                                  'HDTS',
+                                                  offset=0)
+        deleted = 0
+        for file in files:
+            file_ids = file.file_id
+            result = await Media.collection.delete_one({
+                '_id': file_ids,
+            })
+            if result.deleted_count:
+                logger.info('HDTS File Found ! Successfully deleted from database.')
+            deleted+=1
+        deleted = str(deleted)
+        await k.edit_text(text=f"<b>Sᴜᴄᴄᴇssғᴜʟʟʏ Dᴇʟᴇᴛᴇᴅ {deleted} HDTS Fɪʟᴇs.</b>")
+
+    elif query.data == "hdtss":
+        k = await client.send_message(chat_id=query.message.chat.id, text="<b>Dᴇʟᴇᴛɪɴɢ...</b>")
+        files, next_offset, total = await get_bad_files(
+                                                  'HD-TS',
+                                                  offset=0)
+        deleted = 0
+        for file in files:
+            file_ids = file.file_id
+            result = await Media.collection.delete_one({
+                '_id': file_ids,
+            })
+            if result.deleted_count:
+                logger.info('HD-TS File Found ! Successfully deleted from database.')
+            deleted+=1
+        deleted = str(deleted)
+        await k.edit_text(text=f"<b>Sᴜᴄᴄᴇssғᴜʟʟʏ Dᴇʟᴇᴛᴇᴅ {deleted} HD-TS Fɪʟᴇs.</b>")
+        
     elif query.data == "predvd":
         k = await client.send_message(chat_id=query.message.chat.id, text="<b>Deleting PreDVDs... Please wait...</b>")
         files, next_offset, total = await get_bad_files(
@@ -649,8 +785,6 @@ async def cb_handler(client: Client, query: CallbackQuery):
         ], [
             InlineKeyboardButton('ʜᴇʟᴘ', callback_data='help'),
             InlineKeyboardButton('ᴀʙᴏᴜᴛ', callback_data='about')
-         ],[
-            InlineKeyboardButton('ʙᴀᴄᴋ ᴛᴏ sᴛᴀʀᴛ', callback_data='surprise')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await client.edit_message_media(
@@ -664,90 +798,57 @@ async def cb_handler(client: Client, query: CallbackQuery):
             parse_mode=enums.ParseMode.HTML
         )
         await query.answer(MSG_ALRT)
+    elif query.data == "help2":
+        buttons = [[                               
+            InlineKeyboardButton('🎁 Mᴏʀᴇ Fᴇᴀᴛᴜʀᴇꜱ 🎁', callback_data='aswins')  
+            ],[
+            InlineKeyboardButton('Mᴀɴᴜᴀʟ Fɪʟᴛᴇʀ', callback_data='manuelfilter'),
+            InlineKeyboardButton('Aᴜᴛᴏ Fɪʟᴛᴇʀ', callback_data='autofilter')
+            ],[
+            InlineKeyboardButton('Cᴏɴɴᴇᴄᴛɪᴏɴꜱ', callback_data='coct'),
+            InlineKeyboardButton('Exᴛʀᴀ Mᴏᴅꜱ', callback_data='extra')   
+            ],[
+            InlineKeyboardButton('Hᴏᴍᴇ', callback_data='start'),
+            InlineKeyboardButton('Sᴛᴀᴛᴜꜱ', callback_data='stats')
+         ]] 
+        reply_markup = InlineKeyboardMarkup(buttons)             
+        await query.message.edit_text(                     
+            text=script.HELP_TXT.format(query.from_user.mention),
+            reply_markup=reply_markup,
+            parse_mode=enums.ParseMode.HTML
+        )      
     elif query.data == "help":
-        buttons = [[
-            InlineKeyboardButton('ᴍᴀɴᴜᴀʟ', callback_data='manuelfilter'),
-            InlineKeyboardButton('ᴀᴜᴛᴏ', callback_data='autofilter'),
-            InlineKeyboardButton('ᴄᴏɴɴᴇᴄᴛ', callback_data='coct')
-        ], [
-            InlineKeyboardButton('ᴇxᴛʀᴀ', callback_data='extra'),
+        buttons = [[                               
+            InlineKeyboardButton('ᴛᴇʟᴇɢʀᴀᴘʜ​', callback_data='tele'),
             InlineKeyboardButton('sᴏɴɢ', callback_data='song'),
-            InlineKeyboardButton('ᴛᴛs', callback_data='tts')
-        ], [
-            InlineKeyboardButton('ᴠɪᴅᴇᴏ', callback_data='video'),
-            InlineKeyboardButton('ᴛɢʀᴀᴘʜ', callback_data='tele'),
-            InlineKeyboardButton('ɴᴇxᴛ', callback_data='aswin')    
-        ], [
-            InlineKeyboardButton('ʙᴀᴄᴋ', callback_data='start')      
-        ]]
-        reply_markup = InlineKeyboardMarkup(buttons)
-        await client.edit_message_media(
-            query.message.chat.id, 
-            query.message.id, 
-            InputMediaPhoto(random.choice(PICS))
-        )
-        await query.message.edit_text(
-            text="▣ ▢ ▢"
-        )
-        await query.message.edit_text(
-            text="▣ ▣ ▢"
-        )
-        await query.message.edit_text(
-            text="▣ ▣ ▣"
-        )       
-        await query.message.edit_text(                     
-            text=script.HELP_TXT.format(query.from_user.mention),
-            reply_markup=reply_markup,
-            parse_mode=enums.ParseMode.HTML
-        )
-    elif query.data == "aswin":
-        buttons = [[
-             InlineKeyboardButton('ᴀᴜᴅʙᴏᴏᴋ', callback_data='abook'),
-             InlineKeyboardButton('ᴄᴏᴠɪᴅ', callback_data='corona'),
-             InlineKeyboardButton('ɢᴀᴍᴇs', callback_data='fun')
-         ], [
-             InlineKeyboardButton('ᴘɪɴɢ', callback_data='pings'),
-             InlineKeyboardButton('ᴊsᴏɴᴇ', callback_data='json'),
-             InlineKeyboardButton('sᴛɪᴄᴋɪᴅ', callback_data='sticker')
-         ], [
-             InlineKeyboardButton('ᴡʜᴏɪs', callback_data='whois'),
-             InlineKeyboardButton('ᴜʀʟsʜᴏʀᴛ', callback_data='urlshort'),
-             InlineKeyboardButton('ɴᴇxᴛ', callback_data='aswins')  
-        ], [
-            InlineKeyboardButton('ʙᴀᴄᴋ', callback_data='help')         
-        ]]
-        reply_markup = InlineKeyboardMarkup(buttons)
-        await client.edit_message_media(
-            query.message.chat.id, 
-            query.message.id, 
-            InputMediaPhoto(random.choice(PICS))
-        )
-        await query.message.edit_text(
-            text="▣ ▢ ▢"
-        )
-        await query.message.edit_text(
-            text="▣ ▣ ▢"
-        )
-        await query.message.edit_text(
-            text="▣ ▣ ▣"
-        )       
-        await query.message.edit_text(                     
-            text=script.HELP_TXT.format(query.from_user.mention),
-            reply_markup=reply_markup,
-            parse_mode=enums.ParseMode.HTML
-        )
-    elif query.data == "aswins":
-        buttons = [[
-             InlineKeyboardButton('ғᴏɴᴛ', callback_data='font'),
-             InlineKeyboardButton('ɢᴛʀᴀɴs', callback_data='gtrans'),
-             InlineKeyboardButton('ᴄᴀʀʙᴏɴ', callback_data='carb'),
-        ],  [
-             InlineKeyboardButton('ᴄᴏᴜɴᴛʀʏ', callback_data='country'),
-             InlineKeyboardButton('ᴅᴇᴘʟᴏʏ', callback_data='deploy'),
-             InlineKeyboardButton('ʜᴏᴍᴇ', callback_data='start')
-        ], [
-             InlineKeyboardButton('ʙᴀᴄᴋ', callback_data='aswin')
-        ]]
+            InlineKeyboardButton('ꜰɪʟᴇ-sᴛᴏʀᴇ​', callback_data='newdata')
+            ],[           
+            InlineKeyboardButton('ᴊsᴏɴᴇ', callback_data='json'),
+            InlineKeyboardButton('ᴛᴛs', callback_data='tts'),           
+            InlineKeyboardButton('ᴠɪᴅᴇᴏ', callback_data='video')
+            ],[
+            InlineKeyboardButton('ᴀᴜᴅʙᴏᴏᴋ', callback_data='abook'),
+            InlineKeyboardButton('ᴜʀʟ_sʜᴏʀᴛ', callback_data='urlshort'),
+            InlineKeyboardButton('ᴘɪɴɢ', callback_data='pings')                                   
+            ],[                               
+            InlineKeyboardButton('ᴄᴏᴠɪᴅ', callback_data='corona'),
+            InlineKeyboardButton('ɢᴀᴍᴇs', callback_data='fun'),
+            InlineKeyboardButton('ᴘɪɴ', callback_data='pin')
+            ],[
+            InlineKeyboardButton('sᴛɪᴄᴋɪᴅ', callback_data='sticker'),
+            InlineKeyboardButton('ᴡʜᴏɪs', callback_data='whois'),
+            InlineKeyboardButton('ᴢᴏᴍʙɪᴇ​', callback_data='zombies')
+            ],[
+            InlineKeyboardButton('ғᴏɴᴛ', callback_data='font'),
+            InlineKeyboardButton('ɢᴛʀᴀɴs', callback_data='gtrans'),
+            InlineKeyboardButton('ᴄᴀʀʙᴏɴ', callback_data='carb')
+            ],[
+            InlineKeyboardButton('ᴄᴏᴜɴᴛʀʏ', callback_data='country'),
+            InlineKeyboardButton('ᴅᴇᴘʟᴏʏ', callback_data='deploy'),
+            InlineKeyboardButton('ʜᴏᴍᴇ', callback_data='start')
+            ],[
+            InlineKeyboardButton('↭ ʙᴀᴄᴋ ᴛᴏ ʜᴏᴍᴇ ​↭', callback_data='help')
+         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await client.edit_message_media(
             query.message.chat.id, 
@@ -789,7 +890,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         )
     elif query.data == "source":
         buttons = [[
-            InlineKeyboardButton('ʀᴇᴘᴏ', url='https://github.com/Devil-Botz/Elsa'),
+            InlineKeyboardButton('ʀᴇᴘᴏ', url='https://github.com/matrixbotz0/PETER-PARKER-BOT'),
             InlineKeyboardButton('ʙᴀᴄᴋ', callback_data='about')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
@@ -862,7 +963,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         )
     elif query.data == "song":
         buttons = [[
-            InlineKeyboardButton('ʙᴀᴄᴋ', callback_data='help')
+            InlineKeyboardButton('ʙᴀᴄᴋ', callback_data='aswins')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await query.message.edit_text(
@@ -872,7 +973,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         )
     elif query.data == "video":
         buttons = [[
-            InlineKeyboardButton('ʙᴀᴄᴋ', callback_data='help')
+            InlineKeyboardButton('ʙᴀᴄᴋ', callback_data='aswins')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await query.message.edit_text(
@@ -882,7 +983,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         )
     elif query.data == "tts":
         buttons = [[
-            InlineKeyboardButton('ʙᴀᴄᴋ', callback_data='help')
+            InlineKeyboardButton('ʙᴀᴄᴋ', callback_data='aswins')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await query.message.edit_text(
@@ -915,7 +1016,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         )
     elif query.data == "tele":
         buttons = [[
-            InlineKeyboardButton('ʙᴀᴄᴋ', callback_data='help')
+            InlineKeyboardButton('ʙᴀᴄᴋ', callback_data='aswins')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await query.message.edit_text(
@@ -925,7 +1026,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         )
     elif query.data == "corona":
         buttons = [[
-            InlineKeyboardButton('ʙᴀᴄᴋ', callback_data='aswin')
+            InlineKeyboardButton('ʙᴀᴄᴋ', callback_data='aswins')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await query.message.edit_text(
@@ -936,7 +1037,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         )
     elif query.data == "abook":
         buttons = [[
-            InlineKeyboardButton('ʙᴀᴄᴋ', callback_data='aswin')
+            InlineKeyboardButton('ʙᴀᴄᴋ', callback_data='aswins')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await query.message.edit_text(
@@ -947,10 +1048,10 @@ async def cb_handler(client: Client, query: CallbackQuery):
         )
     elif query.data == "deploy":
         buttons = [[
-           InlineKeyboardButton('ʀᴇᴘᴏ', url='https://github.com/Devil-Botz/Elsa'),
-           InlineKeyboardButton('ᴏᴡɴᴇʀ', url='https://t.me/Aswin_pm_Bot')
+           InlineKeyboardButton('ʀᴇᴘᴏ', url='https://github.com/matrixbotz0/PETER-PARKER-BOT'),
+           InlineKeyboardButton('ᴏᴡɴᴇʀ', url='https://t.me/TGxMATRIX')
         ], [
-            InlineKeyboardButton('ʙᴀᴄᴋ', callback_data='aswin')
+            InlineKeyboardButton('ʙᴀᴄᴋ', callback_data='aswins')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await query.message.edit_text(
@@ -960,7 +1061,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         )
     elif query.data == "sticker":
         buttons = [[
-            InlineKeyboardButton('ʙᴀᴄᴋ', callback_data='aswin')
+            InlineKeyboardButton('ʙᴀᴄᴋ', callback_data='aswins')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await query.message.edit_text(
@@ -971,7 +1072,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         )
     elif query.data == "pings":
         buttons = [[
-            InlineKeyboardButton('ʙᴀᴄᴋ', callback_data='aswin')
+            InlineKeyboardButton('ʙᴀᴄᴋ', callback_data='aswins')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await query.message.edit_text(
@@ -981,7 +1082,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         )
     elif query.data == "json":
         buttons = [[
-            InlineKeyboardButton('ʙᴀᴄᴋ', callback_data='help')
+            InlineKeyboardButton('ʙᴀᴄᴋ', callback_data='aswins')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await query.message.edit_text(
@@ -991,7 +1092,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         )
     elif query.data == "urlshort":
         buttons = [[
-            InlineKeyboardButton('ʙᴀᴄᴋ', callback_data='aswin')
+            InlineKeyboardButton('ʙᴀᴄᴋ', callback_data='aswins')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await query.message.edit_text(
@@ -1002,7 +1103,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         )
     elif query.data == "whois":
         buttons = [[
-            InlineKeyboardButton('ʙᴀᴄᴋ', callback_data='aswin')
+            InlineKeyboardButton('ʙᴀᴄᴋ', callback_data='aswins')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await query.message.edit_text(
@@ -1032,7 +1133,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         )
     elif query.data == "fun":
         buttons = [[
-            InlineKeyboardButton('ʙᴀᴄᴋ', callback_data='aswin')
+            InlineKeyboardButton('ʙᴀᴄᴋ', callback_data='aswins')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await query.message.edit_text(
