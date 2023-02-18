@@ -783,7 +783,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             InlineKeyboardButton('🔍 sᴇᴀʀᴄʜ', switch_inline_query_current_chat=''),
             InlineKeyboardButton('ᴏᴡɴ ɪɴғᴏ', url='https://t.me/TGxMATRIX')
         ], [
-            InlineKeyboardButton('ʜᴇʟᴘ', callback_data='aswins'),
+            InlineKeyboardButton('ʜᴇʟᴘ', callback_data='help2'),
             InlineKeyboardButton('ᴀʙᴏᴜᴛ', callback_data='about')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
