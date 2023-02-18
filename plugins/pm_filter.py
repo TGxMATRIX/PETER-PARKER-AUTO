@@ -837,7 +837,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             ],[
             InlineKeyboardButton('sᴛɪᴄᴋɪᴅ', callback_data='sticker'),
             InlineKeyboardButton('ᴡʜᴏɪs', callback_data='whois'),
-            InlineKeyboardButton('ᴢᴏᴍʙɪᴇ​', callback_data='zombies')
+            InlineKeyboardButton('ᴋɪᴄᴋ', callback_data='zombies')
             ],[
             InlineKeyboardButton('ғᴏɴᴛ', callback_data='font'),
             InlineKeyboardButton('ɢᴛʀᴀɴs', callback_data='gtrans'),
@@ -914,6 +914,16 @@ async def cb_handler(client: Client, query: CallbackQuery):
             reply_markup=reply_markup,
             parse_mode=enums.ParseMode.HTML
         )
+    elif query.data == "pin":
+        buttons = [[
+            InlineKeyboardButton('«𝙱𝙰𝙲𝙺', callback_data='help')
+        ]]
+        reply_markup = InlineKeyboardMarkup(buttons)
+        await query.message.edit_text(
+            text=script.PIN_TXT,
+            reply_markup=reply_markup,
+            parse_mode=enums.ParseMode.HTML
+        )
     elif query.data == "button":
         buttons = [[
             InlineKeyboardButton('ʙᴀᴄᴋ', callback_data='manuelfilter')
@@ -924,6 +934,27 @@ async def cb_handler(client: Client, query: CallbackQuery):
             reply_markup=reply_markup,
             parse_mode=enums.ParseMode.HTML
         )
+    elif query.data == "newdata":
+        buttons = [[
+            InlineKeyboardButton('«𝙱𝙰𝙲𝙺', callback_data='help')
+        ]]
+        reply_markup = InlineKeyboardMarkup(buttons)
+        await query.message.edit_text(
+            text=script.FILE_TXT,
+            reply_markup=reply_markup,
+            parse_mode=enums.ParseMode.HTML
+        )
+    elif query.data == "zombies":
+        buttons = [[
+            InlineKeyboardButton('«𝙱𝙰𝙲𝙺', callback_data='help')
+        ]]
+        reply_markup = InlineKeyboardMarkup(buttons)
+        await query.message.edit_text(
+            text=script.ZOMBIES_TXT,
+            disable_web_page_preview=True,
+            reply_markup=reply_markup,
+            parse_mode=enums.ParseMode.HTML
+        )    
     elif query.data == "autofilter":
         buttons = [[
             InlineKeyboardButton('ʙᴀᴄᴋ', callback_data='help2')
