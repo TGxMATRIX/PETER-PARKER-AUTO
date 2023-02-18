@@ -6,7 +6,14 @@
   <b> 𝙋𝙀𝙏𝙀𝙍 𝙋𝘼𝙍𝙆𝙀𝙍 𝐁𝐎𝐓</b>
 </h1>
 
-
+<a href="https://github.com/matrixbotz0/PETER-PARKER-BOT"><img src="https://img.shields.io/github/stars/matrixbotz0/PETER-PARKER-BOT?color=black&logo=github&logoColor=black&style=for-the-badge" alt="Stars" /></a>
+<a href="https://github.com/matrixbotz0/PETER-PARKER-BOT/network/members"> <img src="https://img.shields.io/github/forks/matrixbotz0/PETER-PARKER-BOT?color=black&logo=github&logoColor=black&style=for-the-badge" /></a>
+<a href="https://github.com/matrixbotz0/PETER-PARKER-BOT"> <img src="https://img.shields.io/github/repo-size/matrizbotz0/PETER-PARKER-BOT?color=skyblue&logo=github&logoColor=blue&style=for-the-badge" /></a>   
+<a href="https://github.com/matrixbotz0/PETER-PARKER-BOT/commit/main"> <img src="https://img.shields.io/github/last-commit/matrixbotz0/PETER-PARKER-BOT?color=black&logo=github&logoColor=black&style=for-the-badge" /></a>
+<a href="https://github.com/matrixbotz0/PETER-PARKER-BOT"> <img src="https://img.shields.io/github/contributors/matrixbotz0/PETER-PARKER-BOT?color=skyblue&logo=github&logoColor=blue&style=for-the-badge" /></a>
+<a href="https://github.com/matrixbotz0/PETER-PARKER-BOT/blob/main/LICENSE"> <img src="https://img.shields.io/badge/License- GPL 2.0 license -blueviolet?style=for-the-badge" alt="License" /> </a>
+<a href="https://www.python.org/"> <img src="https://img.shields.io/badge/Written%20in-Python-skyblue?style=for-the-badge&logo=python" alt="Python" /> </a>
+<a href="https://pypi.org/project/Pyrogram/"> <img src="https://img.shields.io/pypi/v/pyrogram?color=white&label=pyrogram&logo=python&logoColor=blue&style=for-the-badge" /></a>
 
 
 ## Features
