@@ -903,6 +903,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             text=script.UPDATES_TXT,
             reply_markup=reply_markup,
             parse_mode=enums.ParseMode.HTML
+        )
     elif query.data == "manuelfilter":
         buttons = [[
             InlineKeyboardButton('ʙᴀᴄᴋ', callback_data='help2'),
