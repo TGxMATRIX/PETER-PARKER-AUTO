@@ -1503,7 +1503,6 @@ async def auto_filter(client, msg, spoll=False):
             InlineKeyboardButton('📌 Rᴇǫᴜᴇꜱᴛ Hᴇʀᴇ', url='https://t.me/+ax8qz38HZhU1NGE1')
             ]]
         reply_markup = InlineKeyboardMarkup(buttons)
-            reply_markup=reply_markup,
             parse_mode=enums.ParseMode.HTML
             )
         else:
