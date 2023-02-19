@@ -1503,7 +1503,11 @@ async def auto_filter(client, msg, spoll=False):
             InlineKeyboardButton('📌 Rᴇǫᴜᴇꜱᴛ Hᴇʀᴇ', url='https://t.me/+ax8qz38HZhU1NGE1')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
-                         
+        await query.message.edit_text(
+            text=script.CHUMMA_TXT,
+            reply_markup=reply_markup,
+            parse_mode=enums.ParseMode.HTML
+        )
     else:
         fuk = await message.reply_photo(photo=NOR_IMG, caption=cap, reply_markup=InlineKeyboardMarkup(btn))
         try:
