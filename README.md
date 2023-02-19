@@ -92,7 +92,7 @@ ban_user  - to ban a user.
 unban_user  - to unban a user.
 channel - to get list of total connected channels
 broadcast - to broadcast a message to all users
-groups_broadcast - to broadcast a message to all groups
+grop_broadcast - to broadcast a message to all groups
 ```
 
 ## TELAGRAM SUPPORT 
