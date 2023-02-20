@@ -192,7 +192,7 @@ async def next_page(bot, query):
         ]
     btn.insert(0, 
         [
-            InlineKeyboardButton(f' ♀️ {search} ♀️ ', 'qinfo')
+            InlineKeyboardButton(f' 🎬 {search} 🎬 ', 'qinfo')
         ]
     )
     btn.insert(1, 
@@ -890,9 +890,6 @@ async def cb_handler(client: Client, query: CallbackQuery):
         buttons = [[
             InlineKeyboardButton('𝚂𝚄𝙿𝙿𝙾𝚁𝚃', url='https://t.me/MLZ_BOTZ_SUPPORT'),
             InlineKeyboardButton('𝚄𝙿𝙳𝙰𝚃𝙴𝚂', url='https://t.me/MLZ_BOTZ')
-            ],[
-            InlineKeyboardButton('2nd 𝚂𝚄𝙿𝙿𝙾𝚁𝚃', url='https://t.me/MatRixBotzTGsupport'),
-            InlineKeyboardButton('2nd 𝚄𝙿𝙳𝙰𝚃𝙴𝚂', url='https://t.me/MatRixBotzTG')
             ],[
             InlineKeyboardButton('ʙᴀᴄᴋ', callback_data='about')
         ]]
