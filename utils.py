@@ -157,7 +157,7 @@ async def broadcast_messages(user_id, message):
         return False, "Error"
 
     
-async def groups_broadcast_messages(chat_id, message):
+async def group_broadcast_messages(chat_id, message):
     try:
         k = await message.copy(chat_id=chat_id)
         try:
@@ -167,7 +167,7 @@ async def groups_broadcast_messages(chat_id, message):
         return True, "Success"
     except FloodWait as e:
         await asyncio.sleep(e.x)
-        return await groups_broadcast_messages(chat_id, message)
+        return await group_broadcast_messages(chat_id, message)
     except Exception as e:
         return False, "Error"
     
