@@ -1,20 +1,17 @@
-import logging
-from pyrogram.errors import InputUserDeactivated, UserNotParticipant, FloodWait, UserIsBlocked, PeerIdInvalid
-from pyrogram.types import Message, InlineKeyboardButton
-from pyrogram import Client, filters, enums
+from pyrogram import Client, filters
 import datetime
 import time
 from database.users_chats_db import db
 from info import ADMINS
+from utils import broadcast_messages, groups_broadcast_messages
 import asyncio
         
-@Client.on_message(filters.command("broadcast") & filters.user(ADMINS) & filters.reply)
-# vazha മരത്തെ കളിയാക്കിയവർ o##fi
-async def verupikkals(bot, message):
+@Client.on_message(filters.command("users_broadcast") & filters.user(ADMINS) & filters.reply)
+async def users_broadcast(bot, message):
     users = await db.get_all_users()
     b_msg = message.reply_to_message
     sts = await message.reply_text(
-        text='Broadcasting your messages...'
+        text='Broadcasting your users messages...'
     )
     start_time = time.time()
     total_users = await db.total_users_count()
@@ -38,82 +35,34 @@ async def verupikkals(bot, message):
         done += 1
         await asyncio.sleep(2)
         if not done % 20:
-            await sts.edit(f"Broadcast in progress:\n\nTotal Users {total_users}\nCompleted: {done} / {total_users}\nSuccess: {success}\nBlocked: {blocked}\nDeleted: {deleted}")    
+            await sts.edit(f"Users broadcast in progress...\n\nTotal Users: <code>{total_users}</code>\nCompleted: <code>{done} / {total_users}</code>\nSuccess: <code>{success}</code>\nBlocked: <code>{blocked}</code>\nDeleted: <code>{deleted}</code>")    
     time_taken = datetime.timedelta(seconds=int(time.time()-start_time))
-    await sts.edit(f"Broadcast Completed:\nCompleted in {time_taken} seconds.\n\nTotal Users {total_users}\nCompleted: {done} / {total_users}\nSuccess: {success}\nBlocked: {blocked}\nDeleted: {deleted}")
+    await sts.edit(f"Users broadcast completed.\nCompleted in {time_taken} seconds.\n\nTotal Users: <code>{total_users}</code>\nCompleted: <code>{done} / {total_users}</code>\nSuccess: <code>{success}</code>\nBlocked: <code>{blocked}</code>\nDeleted: <code>{deleted}</code>")
+        
 
-
-
-@Client.on_message(filters.command("group_broadcast") & filters.user(ADMINS) & filters.reply)
-async def broadcast_group(bot, message):
-    groups = await db.get_all_chats()
+@Client.on_message(filters.command("groups_broadcast") & filters.user(ADMINS) & filters.reply)
+async def groups_broadcast(bot, message):
+    chats = await db.get_all_chats()
     b_msg = message.reply_to_message
-    sts = await message.reply_text(text='Broadcasting your messages To Groups...')
+    sts = await message.reply_text(
+        text='Broadcasting your groups messages...'
+    )
     start_time = time.time()
-    total_groups = await db.total_chat_count()
+    total_chats = await db.total_chat_count()
     done = 0
-    failed = ""
+    failed =0
+
     success = 0
-    deleted = 0
-    async for group in groups:
-        pti, sh, ex = await broadcast_messages_group(int(group['id']), b_msg)
-        if pti == True:
-            if sh == "Succes":
-                success += 1
+    async for chat in chats:
+        pti, sh = await groups_broadcast_messages(int(chat['id']), b_msg)
+        if pti:
+            success += 1
         elif pti == False:
-            if sh == "deleted":
-                deleted+=1 
-                failed += ex 
-                try:
-                    await bot.leave_chat(int(group['id']))
-                except Exception as e:
-                    print(f"{e} > {group['id']}")  
+            if sh == "Error":
+                failed += 1
         done += 1
+        await asyncio.sleep(2)
         if not done % 20:
-            await sts.edit(f"Broadcast in progress:\n\nTotal Groups {total_groups}\nCompleted: {done} / {total_groups}\nSuccess: {success}\nDeleted: {deleted}")    
+            await sts.edit(f"Groups groadcast in progress...\n\nTotal Groups: <code>{total_chats}</code>\nCompleted: <code>{done} / {total_chats}</code>\nSuccess: <code>{success}</code>\nFailed: <code>{failed}</code>")    
     time_taken = datetime.timedelta(seconds=int(time.time()-start_time))
-    await sts.edit(f"Broadcast Completed:\nCompleted in {time_taken} seconds.\n\nTotal Groups {total_groups}\nCompleted: {done} / {total_groups}\nSuccess: {success}\nDeleted: {deleted}\n\nFiled Reson:- {failed}")
-
-            
-async def broadcast_messages_group(chat_id, message):
-    try:
-        await message.copy(chat_id=chat_id)
-        return True, "Succes", 'mm'
-    except FloodWait as e:
-        await asyncio.sleep(e.x)
-        return await broadcast_messages_group(chat_id, message)
-    except Exception as e:
-        await db.delete_chat(int(chat_id))       
-        logging.info(f"{chat_id} - PeerIdInvalid")
-        return False, "deleted", f'{e}\n\n'
-    
-
-
-async def broadcast_messages(user_id, message):
-    try:
-        await message.copy(chat_id=user_id)
-        return True, "Success"
-    except FloodWait as e:
-        await asyncio.sleep(e.x)
-        return await broadcast_messages(user_id, message)
-    except InputUserDeactivated:
-        await db.delete_user(int(user_id))
-        logging.info(f"{user_id}-Removed from Database, since deleted account.")
-        return False, "Deleted"
-    except UserIsBlocked:
-        logging.info(f"{user_id} -Blocked the bot.")
-        return False, "Blocked"
-    except PeerIdInvalid:
-        await db.delete_user(int(user_id))
-        logging.info(f"{user_id} - PeerIdInvalid")
-        return False, "Error"
-    except Exception as e:
-        return False, "Error"
-
-
-
-
-
-
-
-
+    await sts.edit(f"Groups broadcast completed.\nCompleted in {time_taken} seconds.\n\nTotal Groups: <code>{total_chats}</code>\nCompleted: <code>{done} / {total_chats}</code>\nSuccess: <code>{success}</code>\nFailed: <code>{failed}</code>")
