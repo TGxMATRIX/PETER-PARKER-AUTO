@@ -61,7 +61,7 @@ async def fil_mod(client, message):
 
             
 
-@Client.on_message(filters.private & filters.text & filters.incoming)
+@Client.on_message(filters.group | filters.private & filters.text & filters.incoming)
 async def pm_text(bot, message):
     if FILTER_MODE.get(str(message.chat.id)) == "False":
         return
