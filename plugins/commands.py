@@ -422,7 +422,7 @@ async def settings(client, message):
                     callback_data=f'setgs#botpm#{settings["botpm"]}#{grp_id}',
                 ),
                 InlineKeyboardButton(
-                    'Bot PM' if settings["botpm"] else 'Channel',
+                    'Bot PM' if settings["botpm"] else 'auto send',
                     callback_data=f'setgs#botpm#{settings["botpm"]}#{grp_id}',
                 ),
             ],
