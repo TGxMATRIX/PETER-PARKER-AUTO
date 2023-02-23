@@ -64,10 +64,6 @@
 
 [![Deploy to Koyeb](https://www.koyeb.com/static/images/deploy/button.svg)](https://app.koyeb.com/deploy?type=git&repository=github.com/koyeb/PETER-PARKER-BOT&branch=main&name=PETER-PARKER-BOT)
 
-## Deploy to Mogenius
-
-[![Deploy to Mogenius](https://mogenius.com/images/deploy-to-mogenius-button.svg)](https://mogenius.com/deploy?repo=https://github.com/matrixbotz0/PETER-PARKER-BOT)
-
 ## Commands
 ```
 start - check bot alive
