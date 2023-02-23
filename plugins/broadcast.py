@@ -3,7 +3,7 @@ import datetime
 import time
 from database.users_chats_db import db
 from info import ADMINS
-from utils import broadcast_messages, group_broadcast_messages
+from utils import broadcast_messages, groups_broadcast_messages
 import asyncio
         
 @Client.on_message(filters.command("broadcast") & filters.user(ADMINS) & filters.reply)
