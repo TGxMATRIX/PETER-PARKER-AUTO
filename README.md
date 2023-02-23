@@ -66,7 +66,7 @@
 
 ## Deploy to Mogenius
 
-[![Deploy to Render](https://mogenius.com/images/deploy-to-mogenius-button.svg)](https://mogenius.com/deploy?repo=https://github.com/matrixbotz0/PETER-PARKER-BOT)
+[![Deploy to Mogenius](https://mogenius.com/images/deploy-to-mogenius-button.svg)](https://mogenius.com/deploy?repo=https://github.com/matrixbotz0/PETER-PARKER-BOT)
 
 ## Commands
 ```
