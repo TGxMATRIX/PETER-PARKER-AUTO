@@ -97,5 +97,5 @@ grop_broadcast - to broadcast a message to all groups
 
 ## TELAGRAM SUPPORT 
 
-* [![Matrix BOTZ](https://img.shields.io/static/v1?label=MATRIX&message=BOTZ&color=critical)](https://t.me/MatRixBotzTGsupport)
+* [![Matrix BOTZ](https://img.shields.io/static/v1?label=MATRIX&message=BOTZ&color=critical)](https://t.me/MLZ_BOTZ_SUPPORT)
 
