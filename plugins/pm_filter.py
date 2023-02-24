@@ -109,6 +109,7 @@ async def give_filter(client,message):
 
 @Client.on_message(filters.private & filters.text & filters.incoming)
 async def pm_text(bot, message):
+    await global_filters(bot, message)
     await auto_filter(bot, message)
 
 @Client.on_callback_query(filters.regex(r"^next"))
