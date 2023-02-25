@@ -16,13 +16,13 @@ services:
         sync: false
       - key: FORCE_SUB 
         sync: false
-      - key: DB_NAME 
+      - key: DATABASE_NAME
         sync: false
-      - key: DB_URL 
+      - key: DATABASE_URL 
         sync: false 
-      - key: START_PIC 
+      - key: PICS 
         sync: false
-      - key: ADMIN 
+      - key: ADMINS
         sync: false    
       - key: LOG_CHANNEL
         sync: false
