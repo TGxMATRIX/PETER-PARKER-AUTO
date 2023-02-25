@@ -14,7 +14,7 @@ services:
         sync: false
       - key: API_HASH 
         sync: false
-      - key: FORCE_SUB 
+      - key: AUTH_CHANNEL
         sync: false
       - key: DATABASE_NAME
         sync: false
