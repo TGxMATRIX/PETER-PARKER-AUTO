@@ -1,6 +1,6 @@
 [![Typing SVG](https://readme-typing-svg.demolab.com?font=&weight=800&size=300&pause=1000&width=6000&height=1900&lines=%F0%9D%97%AA%F0%9D%97%98%F0%9D%97%9F%F0%9D%97%96%F0%9D%97%A2%F0%9D%97%A0+%F0%9D%97%A7%F0%9D%97%A2+%F0%9D%99%8B%F0%9D%99%80%F0%9D%99%8F%F0%9D%99%80%F0%9D%99%8D+%F0%9D%99%8B%F0%9D%98%BC%F0%9D%99%8D%F0%9D%99%86%F0%9D%99%80%F0%9D%99%8D+%F0%9D%90%81%F0%9D%90%8E%F0%9D%90%93;%F0%9D%97%96%F0%9D%97%A5%F0%9D%97%98%F0%9D%97%94%F0%9D%97%A7%F0%9D%97%98%F0%9D%97%97+%F0%9D%97%95%F0%9D%97%AC+%F0%9D%97%A7%F0%9D%97%98%F0%9D%97%94%F0%9D%97%A0+%F0%9D%97%A0%F0%9D%97%AE%F0%9D%98%81%F0%9D%97%A5%F0%9D%97%B6%F0%9D%98%85%F0%9D%97%95%F0%9D%97%BC%F0%9D%98%81%F0%9D%98%87;%F0%9D%97%94+%F0%9D%97%A6%F0%9D%97%9C%F0%9D%97%A0%F0%9D%97%A3%F0%9D%97%9F%F0%9D%97%98+%F0%9D%97%A7%F0%9D%97%9A+%F0%9D%97%95%F0%9D%97%A2%F0%9D%97%A7+MAKER)](https://git.io/typing-svg)
 <p align="center">
-  <img src="https://telegra.ph/file/904753b40ecf8c665b74c.jpg" alt="MatRixBotz LOGO">
+  <img src="https://telegra.ph/file/79bd83439254ed9c4bbca.jpg" alt="MatRixBotz LOGO">
 </p>
 <h1 align="center">
   <b> 𝙋𝙀𝙏𝙀𝙍 𝙋𝘼𝙍𝙆𝙀𝙍 𝐁𝐎𝐓</b>
