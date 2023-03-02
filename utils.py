@@ -169,6 +169,7 @@ async def groups_broadcast_messages(chat_id, message):
         await asyncio.sleep(e.x)
         return await groups_broadcast_messages(chat_id, message)
     except Exception as e:
+        await db.delete_group(int(chat_id))
         return False, "Error"
     
     
