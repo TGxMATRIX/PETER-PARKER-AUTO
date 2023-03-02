@@ -75,6 +75,9 @@ class Database:
 
     async def delete_user(self, user_id):
         await self.col.delete_many({'id': int(user_id)})
+        
+    async def delete_group(self, group_id):
+        await self.grp.delete_many({'id': int(group_id)})
 
 
     async def get_banned(self):
