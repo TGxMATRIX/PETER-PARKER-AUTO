@@ -62,7 +62,7 @@ async def start(client, message):
 
     status = await ForceSub(client, message, file_id=file_id, mode=pre)
     if not status:
-             return
+          return
 
     if len(message.command) == 2 and message.command[1] in ["subscribe", "error", "okay", "help", "start", "hehe"]:
         if message.command[1] == "subscribe":
