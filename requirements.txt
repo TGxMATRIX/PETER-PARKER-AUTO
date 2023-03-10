@@ -29,7 +29,6 @@ countryinfo
 datetime
 pytz
 dnspython
-aiohttp
 python-math
 psutil==5.9.4
 Pillow
