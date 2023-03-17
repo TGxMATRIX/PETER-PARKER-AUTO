@@ -1298,7 +1298,6 @@ async def auto_filter(client, msg, spoll=False):
             btn = [
                 [
                     InlineKeyboardButton(
-                        text=f"[{get_size(file.f
                         text=f"[{get_size(file.file_size)}] {file.file_name}", callback_data=f'{pre}#{file.file_idile_size)}] {file.file_name}", callback_data=f'{pre}#{req}#{file.file_id}'
                     ),
                 ]
