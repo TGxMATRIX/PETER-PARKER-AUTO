@@ -46,14 +46,24 @@ async def start(client, message):
             InlineKeyboardButton('sᴜʀᴘʀɪsᴇ', callback_data='start')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
-        m=await message.reply_sticker("CAACAgUAAxkBAAIRBGPwcjyu8rC9ISXtapMGNc9VxFvOAAInAQACyJRkFOI9YoCRRKaaHgQ") 
+        a = await message.reply_text(
+            text="● ◌ ◌"
+        )
         await asyncio.sleep(1)
-        await m.delete()        
+        b = await a.edit(
+            text="● ● ◌"
+        )
+        await asyncio.sleep(1)
+        c = await b.edit(
+            text="● ● ●"
+        )
+        await asyncio.sleep(0.5)
+        await c.delete()        
         await message.reply_photo(
-            photo=random.choice(PICS),
-            caption=script.SUR_TXT.format(message.from_user.mention, temp.U_NAME, temp.B_NAME),
-            reply_markup=reply_markup,
-            parse_mode=enums.ParseMode.HTML
+            await message.reply_photo(photo=random.choice(PICS))
+            await message.reply_text(script.SUR_TXT.format(message.from_user.mention, temp.U_NAME, temp.B_NAME),
+                 reply_markup=reply_markup,
+                 parse_mode=enums.ParseMode.HTML
         )
         return
     kk, file_id = message.command[1].split("_", 1) if "_" in message.command[1] else (False, False)
@@ -72,11 +82,23 @@ async def start(client, message):
             InlineKeyboardButton('sᴜʀᴘʀɪsᴇ', callback_data='start')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
-        await message.reply_photo(
-            photo=random.choice(PICS),
-            caption=script.SUR_TXT.format(message.from_user.mention, temp.U_NAME, temp.B_NAME),
-            reply_markup=reply_markup,
-            parse_mode=enums.ParseMode.HTML
+        a = await message.reply_text(
+            text="● ◌ ◌"
+        )
+        await asyncio.sleep(1)
+        b = await a.edit(
+            text="● ● ◌"
+        )
+        await asyncio.sleep(1)
+        c = await b.edit(
+            text="● ● ●"
+        )
+        await asyncio.sleep(0.5)
+        await c.delete()
+        await message.reply_photo(photo=random.choice(PICS))
+        await message.reply_text(script.SUR_TXT.format(message.from_user.mention, temp.U_NAME, temp.B_NAME),
+             reply_markup=reply_markup,
+             parse_mode=enums.ParseMode.HTML
         )
         return
     data = message.command[1]
