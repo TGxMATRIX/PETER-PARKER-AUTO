@@ -55,7 +55,7 @@ async def start(client, message):
         )
         await asyncio.sleep(0.5)
         c = await b.edit(
-            text="● ● ●"
+            text="Hᴇʟᴏ {message.from_user.mention} ʜᴏᴡ ᴀʀᴇ ʏᴏᴜ Nɪᴄᴇ ᴛᴏ ᴍᴇᴇᴛ ʏᴏᴜ"
         )
         await asyncio.sleep(0.5)
         await c.delete()        
