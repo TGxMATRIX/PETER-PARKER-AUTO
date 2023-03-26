@@ -97,7 +97,7 @@ TEXT = environ.get("APPROVED_WELCOME_TEXT", "Hello {mention}\nWelcome To {title}
 APPROVED = environ.get("APPROVED_WELCOME", "on").lower()
 
 # Others
-NO_RESULTS_MSG = is_enabled((environ.get('NO_RESULTS_MSG', "False")), True)
+NO_RESULTS_MSG = is_enabled((environ.get('NO_RESULTS_MSG', "True")), True)
 SUPPORT_CHAT_ID = int(support_chat_id) if support_chat_id and id_pattern.search(support_chat_id) else None
 DELETE_CHANNELS = [int(dch) if id_pattern.search(dch) else dch for dch in environ.get('DELETE_CHANNELS', '0').split()]
 PORT = os.environ.get("PORT", "8080")
