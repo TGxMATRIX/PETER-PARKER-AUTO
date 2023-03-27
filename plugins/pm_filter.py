@@ -1382,7 +1382,8 @@ async def auto_filter(client, msg, spoll=False):
              InlineKeyboardButton(f'ᴛɪᴘs', 'tinfo')  
          ]
     )
-    await message.delete(300)
+    await asyncio.sleep(300)
+    await message.delete()
     m=await message.reply_text("🔍") 
     await asyncio.sleep(0.5)
     await m.delete()
