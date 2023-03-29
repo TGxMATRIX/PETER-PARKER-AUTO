@@ -1383,9 +1383,9 @@ async def auto_filter(client, msg, spoll=False):
          ]
     )
     #await message.delete(300)
-    m=await message.reply_text("🔍") 
-    await asyncio.sleep(0.5)
-    await m.delete()
+    #m=await message.reply_text("🔍") 
+    #await asyncio.sleep(0.5)
+    #await m.delete()
     
 
     if offset != "":
