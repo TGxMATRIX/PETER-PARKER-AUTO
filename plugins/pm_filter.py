@@ -228,7 +228,7 @@ async def advantage_spoll_choker(bot, query):
                 if NO_RESULTS_MSG:
                     await bot.send_message(chat_id=LOG_CHANNEL, text=(script.NORSLTS.format(reqstr.id, reqstr.mention, movie)))
                 k = await query.message.edit(script.MVE_NT_FND)
-                await asyncio.sleep(10)
+                await asyncio.sleep(100)
                 await k.delete()
 
 
@@ -1774,6 +1774,7 @@ async def global_filters(client, message, text=False):
                                 await save_group_settings(grpid, 'auto_delete', True)
                                 settings = await get_settings(message.chat.id)
                                 if settings['auto_delete']:
+                                    await asyncio.sleep(100)
                                     await joelkb.delete()
                             
                         else:
@@ -1788,12 +1789,14 @@ async def global_filters(client, message, text=False):
                             await manual_filters(client, message)
                             try:
                                 if settings['auto_delete']:
+                                    await asyncio.sleep(100)
                                     await hmm.delete()
                             except KeyError:
                                 grpid = await active_connection(str(message.from_user.id))
                                 await save_group_settings(grpid, 'auto_delete', True)
                                 settings = await get_settings(message.chat.id)
                                 if settings['auto_delete']:
+                                    await asyncio.sleep(100)
                                     await hmm.delete()
                                     
                     elif btn == "[]":
@@ -1806,6 +1809,7 @@ async def global_filters(client, message, text=False):
                         await manual_filters(client, message)
                         try:
                             if settings['auto_delete']:
+                                await asyncio.sleep(100)
                                 await oto.delete()
                         except KeyError:
                             grpid = await active_connection(str(message.from_user.id))
@@ -1825,12 +1829,14 @@ async def global_filters(client, message, text=False):
                         await manual_filters(client, message)
                         try:
                             if settings['auto_delete']:
+                                await asyncio.sleep(100)
                                 await dlt.delete()
                         except KeyError:
                             grpid = await active_connection(str(message.from_user.id))
                             await save_group_settings(grpid, 'auto_delete', True)
                             settings = await get_settings(message.chat.id)
                             if settings['auto_delete']:
+                                await asyncio.sleep(100)
                                 await dlt.delete()               
 
                 except Exception as e:
