@@ -62,8 +62,7 @@
 
 ## Deploy to Koyeb
 
-[![Deploy to Koyeb](https://www.koyeb.com/static/images/deploy/button.svg)](https://app.koyeb.com/deploy?type=git&repository=github.com/koyeb/PETER-PARKER-BOT&branch=main&name=PETER-PARKER-BOT)
-
+[![Deploy to Koyeb](https://www.koyeb.com/static/images/deploy/button.svg)](https://app.koyeb.com/deploy?type=git&repository=github.com/PETER-PARKER-BOT&env[BOT_TOKEN]&env[API_ID]&env[API_HASH]&env[ADMIN]&env[DB_URL]&env[DB_NAME]=PETER-PARKER-botz&env[FORCE_SUB]&env[START_PIC]&env[PORT]=8080&run_command=python%20bot.py&branch=main&name=PETER-PARKER) 
 ## Commands
 ```
 start - check bot alive
@@ -92,10 +91,10 @@ ban_user  - to ban a user.
 unban_user  - to unban a user.
 channel - to get list of total connected channels
 broadcast - to broadcast a message to all users
-grop_broadcast - to broadcast a message to all groups
+group_broadcast - to broadcast a message to all groups
 ```
 
 ## TELAGRAM SUPPORT 
 
-* [![Matrix BOTZ](https://img.shields.io/static/v1?label=MATRIX&message=BOTZ&color=critical)](https://t.me/MatRixBotzTGsupport)
+* [![Matrix BOTZ](https://img.shields.io/static/v1?label=MATRIX&message=BOTZ&color=critical)](https://t.me/MLZ_BOTZ_SUPPORT)
 

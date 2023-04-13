@@ -6,7 +6,7 @@ from info import ADMINS
 from utils import broadcast_messages, groups_broadcast_messages
 import asyncio
         
-@Client.on_message(filters.command("users_broadcast") & filters.user(ADMINS) & filters.reply)
+@Client.on_message(filters.command("broadcast") & filters.user(ADMINS) & filters.reply)
 async def users_broadcast(bot, message):
     users = await db.get_all_users()
     b_msg = message.reply_to_message
@@ -40,7 +40,7 @@ async def users_broadcast(bot, message):
     await sts.edit(f"Users broadcast completed.\nCompleted in {time_taken} seconds.\n\nTotal Users: <code>{total_users}</code>\nCompleted: <code>{done} / {total_users}</code>\nSuccess: <code>{success}</code>\nBlocked: <code>{blocked}</code>\nDeleted: <code>{deleted}</code>")
         
 
-@Client.on_message(filters.command("groups_broadcast") & filters.user(ADMINS) & filters.reply)
+@Client.on_message(filters.command("group_broadcast") & filters.user(ADMINS) & filters.reply)
 async def groups_broadcast(bot, message):
     chats = await db.get_all_chats()
     b_msg = message.reply_to_message
