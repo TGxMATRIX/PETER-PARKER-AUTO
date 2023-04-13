@@ -58,7 +58,7 @@ async def fil_mod(client, message):
       else:
           await m.edit("𝚄𝚂𝙴 :- /autofilter on 𝙾𝚁 /autofilter off")
 
-@Client.on_message(filters.group & filters.text & filters.incoming)
+@Client.on_message((filters.group) & filters.text & filters.incoming)
 async def give_filter(client, message):
     if message.chat.id != SUPPORT_CHAT_ID:
         glob = await global_filters(client, message)
@@ -437,7 +437,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         try:
             typed = query.message.reply_to_message.from_user.id #fetching user ID of the user who sent the movie request
         except:
-            typed = clicked #if failed, uses the clicked user's ID as requested user ID
+            typed = clicked #if failed, uses the clicked user's ID as requested user ID             
         files_ = await get_file_details(file_id)
         if not files_:
             return await query.answer('No such file exist.')
@@ -1153,7 +1153,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         )
         reply_markup = InlineKeyboardMarkup(buttons)
         total = await Media.count_documents()
-        users = await db.total_users_count()
+        users = 7018
         chats = await db.total_chat_count()
         monsize = await db.get_db_size()
         free = 536870912 - monsize
@@ -1177,7 +1177,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         )
         reply_markup = InlineKeyboardMarkup(buttons)
         total = await Media.count_documents()
-        users = await db.total_users_count()
+        users = 7018
         chats = await db.total_chat_count()
         monsize = await db.get_db_size()
         free = 536870912 - monsize
@@ -1798,7 +1798,6 @@ async def global_filters(client, message, text=False):
                                 if settings['auto_delete']:
                                     await asyncio.sleep(100)
                                     await hmm.delete()
-                                    
                     elif btn == "[]":
                         oto = await client.send_cached_media(
                             group_id,
@@ -1837,7 +1836,7 @@ async def global_filters(client, message, text=False):
                             settings = await get_settings(message.chat.id)
                             if settings['auto_delete']:
                                 await asyncio.sleep(100)
-                                await dlt.delete()               
+                                await dlt.delete()
 
                 except Exception as e:
                     logger.exception(e)
